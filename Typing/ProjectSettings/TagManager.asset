@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ennemies
+  - Walls
+  - Ground
+  - Spells
+  - Objects
+  - Pieds
   - 
   - 
   - 
