@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private int timerLog = 0;
+
     [SerializeField]
     private int speed = 30;
 
     [SerializeField]
-    private int BillyHp = 3;
+    private int billyHp = 3;
 
     float horizontal;
     float vertical;
@@ -26,17 +28,25 @@ public class Player : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         Movment();
 
-        GameManager.Instance.BillyTookDamage();
-        GameManager.Instance.ResetDamage();
+        billyHp -= GameManager.Instance.BillyTookDamage();
 
-        Debug.Log(BillyHp);
+        GameManager.Instance.ResetDamage();
+        if (timerLog >= 60)
+        {
+            Debug.Log(billyHp);
+            timerLog = 0;
+        }
+        else
+        {
+            timerLog++;
+        }
     }
 
     public int GetBillyHp
     {
         get
         {
-            return BillyHp;
+            return billyHp;
         }
     }
 
