@@ -22,14 +22,21 @@ public class InputManager : MonoBehaviour
     {
         instance = this;
     }
+    private void Start()
+    {
+        //La liste de spell
+        List<Spells> spells = new List<Spells>();
+    }
 
-    Dictionary<string,> sorts = new Dictionary<string, >();
-
+    
     private void Update()
     {
+        //Affiche la boite quand on appuie sur "T" pour l'instant
         if (Input.GetKeyDown(KeyCode.T))
         {
             UIManager.Instance.AfficherBoiteDeDialogue();
         }
+
+
     }
 }
