@@ -7,13 +7,14 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int speed = 30;
 
+    [SerializeField]
+    private int hp = 3;
 
     Rigidbody2D billy2d;
 
     void Start()
     {
         this.billy2d = this.GetComponent<Rigidbody2D>();
-
     }
     
     void Update()
