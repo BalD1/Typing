@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private int speed = 30;
 
     [SerializeField]
-    private int hp = 3;
+    private int BillyHp = 3;
 
     Rigidbody2D billy2d;
 
@@ -27,5 +27,19 @@ public class Player : MonoBehaviour
         position.y = position.y + this.speed * vertical * Time.deltaTime;
 
         this.billy2d.MovePosition(position);
+
+        GameManager.Instance.BillyTookDamage();
+        GameManager.Instance.ResetDamage();
+
+        Debug.Log(BillyHp);
     }
+
+    public int GetBillyHp
+    {
+        get
+        {
+            return BillyHp;
+        }
+    }
+
 }

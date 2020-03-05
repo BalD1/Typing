@@ -20,6 +20,7 @@ public class BillyHitbox : MonoBehaviour
         if(bwate != null)
         {
             Debug.Log("Aïe");
+            GameManager.Instance.DamageToBilly(1);
         }
     }
 }
