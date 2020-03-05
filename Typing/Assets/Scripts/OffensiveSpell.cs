@@ -55,6 +55,11 @@ public class OffensiveSpell : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        Player player = collision.collider.GetComponent<Player>();
+        if (player == null)
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
