@@ -10,6 +10,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int BillyHp = 3;
 
+    float horizontal;
+    float vertical;
+
     Rigidbody2D billy2d;
 
     void Start()
@@ -19,14 +22,9 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector2 position = billy2d.position;
-        position.x = position.x + this.speed * horizontal * Time.deltaTime;
-        position.y = position.y + this.speed * vertical * Time.deltaTime;
-
-        this.billy2d.MovePosition(position);
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+        Movment();
 
         GameManager.Instance.BillyTookDamage();
         GameManager.Instance.ResetDamage();
@@ -40,6 +38,23 @@ public class Player : MonoBehaviour
         {
             return BillyHp;
         }
+    }
+
+    private void Movment()
+    {
+        Vector2 position = billy2d.position;
+        position.x = position.x + this.speed * horizontal * Time.deltaTime;
+        position.y = position.y + this.speed * vertical * Time.deltaTime;
+
+        this.billy2d.MovePosition(position);
+    }
+
+    public Vector2 Direction()
+    {
+        Vector2 direction;
+        direction.x = horizontal;
+        direction.y = vertical;
+        return direction;
     }
 
 }

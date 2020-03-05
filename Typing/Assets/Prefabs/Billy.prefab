@@ -80,6 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804282186892172688}
   - component: {fileID: 804282186892172689}
+  - component: {fileID: 1309873995095620628}
   - component: {fileID: 804282186892172685}
   - component: {fileID: 804282186892172690}
   - component: {fileID: 804282186892172691}
@@ -153,6 +154,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1309873995095620628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186892172694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b4d5792da5c3e4daa38974d8424ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireballPrefab: {fileID: 0}
 --- !u!114 &804282186892172685
 MonoBehaviour:
   m_ObjectHideFlags: 0
