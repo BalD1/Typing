@@ -24,21 +24,21 @@ public class InputManager : MonoBehaviour
     {
         instance = this;
     }
+
+    //La liste de spell
+    List<string> spells = new List<string>();
     private void Start()
     {
-        //La liste de spell
-        List<string> spells = new List<string>();
 
-        spells.Add("Feu");
-        spells.Add("Eau");
-        spells.Add("Eclair");
+        spells.Add("feu");
+        spells.Add("eau");
+        spells.Add("eclair");
     }
 
     
     private void Update()
     {
         string input = Input.inputString;
-        Debug.Log(input);
         if (UIManager.Instance.boitePresent == true)
         {
             UIManager.Instance.inputField.text += input;
@@ -56,8 +56,11 @@ public class InputManager : MonoBehaviour
             else
             {
                 UIManager.Instance.StoreSpell();
-                UIManager.sortEcrit = "";
+                Debug.Log(UIManager.sortEcrit);
+                VerifMots();
+                Debug.Log(VerifMots());
                 UIManager.Instance.CacherBoiteDeDialogue();
+                UIManager.sortEcrit = "";
             }
         }
 
@@ -65,7 +68,14 @@ public class InputManager : MonoBehaviour
 
     public bool VerifMots()
     {
-        return true;
+        for (int i = 0; i<= spells.Count; i++)
+        {
+            if (UIManager.sortEcrit == spells[i])
+            {
+                return true;
+            }
+        }
+            return false;
     }
     
     public void EcrireSpell()
