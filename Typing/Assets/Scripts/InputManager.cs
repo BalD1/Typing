@@ -30,6 +30,7 @@ public class InputManager : MonoBehaviour
         List<string> spells = new List<string>();
 
         spells.Add("FEU");
+        spells.Add("EAU");
     }
 
     
@@ -40,7 +41,11 @@ public class InputManager : MonoBehaviour
         {
             UIManager.Instance.AfficherBoiteDeDialogue();
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
 
+            UIManager.Instance.CacherBoiteDeDialogue();
+        }
 
     }
 }
