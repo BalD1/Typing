@@ -27,6 +27,7 @@ public class BillyHitbox : MonoBehaviour
         {
             Debug.Log("Yes");
             GameManager.Instance.HealToBilly(1);
+            Destroy(coeur.gameObject);
         }
     }
 }
