@@ -31,6 +31,7 @@ public class InputManager : MonoBehaviour
 
         spells.Add("FEU");
         spells.Add("EAU");
+        spells.Add("ECLAIR");
     }
 
     
