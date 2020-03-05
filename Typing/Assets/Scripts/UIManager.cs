@@ -19,9 +19,20 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public GameObject boite;
+
     private void Awake()
     {
         instance = this;
     }
 
+    public void AfficherBoiteDeDialogue()
+    {
+        boite.SetActive(true);    
+    }
+
+    public void CacherBoiteDeDialogue()
+    {
+        boite.SetActive(false);
+    }
 }

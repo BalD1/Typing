@@ -23,4 +23,11 @@ public class InputManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            UIManager.Instance.AfficherBoiteDeDialogue();
+        }
+    }
 }
