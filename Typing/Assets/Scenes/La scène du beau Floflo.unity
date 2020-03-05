@@ -278,5 +278,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4390712817552515454, guid: 5f5c8ec5057276243aa96ebdf2732fca,
         type: 3}
+    - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
+        type: 3}
+      propertyPath: WaterPrefab
+      value: 
+      objectReference: {fileID: 5068367432171172151, guid: 1ab39997d159e414aa38d064986fe283,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6d2b357b60ab04985e6040cac4baf1, type: 3}

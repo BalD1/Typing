@@ -8,6 +8,8 @@ public class Spells : MonoBehaviour
     private GameObject FireballPrefab;
     [SerializeField]
     private GameObject ThunderPrefab;
+    [SerializeField]
+    private GameObject WaterPrefab;
 
     Rigidbody2D rigidbody2d;
 
@@ -15,10 +17,13 @@ public class Spells : MonoBehaviour
     Vector2 direction;
 
 
+    string SpellNameStock;
+
     void Awake()
     {
         rigidbody2d = this.GetComponent<Rigidbody2D>();
         direction = this.transform.position;
+        SpellNameStock = "";
     }
 
 
@@ -31,6 +36,10 @@ public class Spells : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             this.Thunder();
+        }
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            this.Water();
         }
     }
 
@@ -48,14 +57,22 @@ public class Spells : MonoBehaviour
         GetSpell("Thunder");
     }
 
+    public void Water()
+    {
+        GameObject waterObject = Instantiate(WaterPrefab, this.rigidbody2d.position, Quaternion.identity);
+        GetSpell("Water");
+    }
+
     public string GetSpell(string Spell)
     {
-        string stock;
-        stock = "";
         if(Spell != "Call")
         {
-            stock = Spell;
+            SpellNameStock = Spell;
         }
-        return stock;
+        else
+        {
+            Spell = SpellNameStock;
+        }
+        return Spell;
     }
 }
