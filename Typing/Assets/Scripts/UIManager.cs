@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public bool boitePresent = false;
     public GameObject boite;
     public GameObject inputField;
     public static string sortEcrit;
@@ -31,15 +32,18 @@ public class UIManager : MonoBehaviour
     public void AfficherBoiteDeDialogue()
     {
         boite.SetActive(true);
+        boitePresent = true;
     }
 
     public void StoreSpell()
     {
         sortEcrit = inputField.GetComponent<Text>().text;
+        inputField.GetComponent<Text>().text = null;
     }
 
     public void CacherBoiteDeDialogue()
     {
         boite.SetActive(false);
+        boitePresent = false;
     }
 }
