@@ -23,6 +23,8 @@ public class InputManager : MonoBehaviour
         instance = this;
     }
 
+    Dictionary<string,> sorts = new Dictionary<string, >();
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))

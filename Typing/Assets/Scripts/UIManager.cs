@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     }
 
     public GameObject boite;
+    public GameObject inputField;
 
     private void Awake()
     {
