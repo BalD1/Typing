@@ -39,8 +39,10 @@ public class InputManager : MonoBehaviour
     {
         string input = Input.inputString;
         Debug.Log(input);
-
-        UIManager.Instance.inputField.text += input;
+        if (UIManager.Instance.boitePresent == true)
+        {
+            UIManager.Instance.inputField.text += input;
+        }
 
         //Affiche la boite quand on appuie sur "T" pour l'instant
         if (Input.GetKeyDown(KeyCode.Return))

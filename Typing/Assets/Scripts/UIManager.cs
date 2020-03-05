@@ -20,7 +20,8 @@ public class UIManager : MonoBehaviour
     }
 
     public bool boitePresent = false;
-    public GameObject boite;
+    public GameObject panel;
+    public GameObject boiteTexte;
     public Text inputField;
     public static string sortEcrit;
 
@@ -31,7 +32,8 @@ public class UIManager : MonoBehaviour
 
     public void AfficherBoiteDeDialogue()
     {
-        boite.SetActive(true);
+        panel.SetActive(true);
+        boiteTexte.SetActive(true);
         boitePresent = true;
     }
 
@@ -43,7 +45,8 @@ public class UIManager : MonoBehaviour
 
     public void CacherBoiteDeDialogue()
     {
-        boite.SetActive(false);
+        panel.SetActive(false);
+        boiteTexte.SetActive(false);
         boitePresent = false;
     }
 }
