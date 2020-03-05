@@ -29,8 +29,9 @@ public class Player : MonoBehaviour
         Movment();
 
         billyHp -= GameManager.Instance.BillyTookDamage();
+        billyHp += GameManager.Instance.BillyReceivedHeal();
 
-        GameManager.Instance.ResetDamage();
+        GameManager.Instance.ResetDamageHeal();
         if (timerLog >= 60)
         {
             Debug.Log(billyHp);
