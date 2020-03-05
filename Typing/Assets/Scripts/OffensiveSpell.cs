@@ -26,22 +26,22 @@ public class OffensiveSpell : MonoBehaviour
         {
             if(direction.x > 0)
             {
-                direction.x = 1;
+                direction.x = 0.5f;
             }
             else
             {
-                direction.x = -1;
+                direction.x = -0.5f;
             }
         }
         if(direction.y != 0)
         {
             if(direction.y > 0)
             {
-                direction.y = 1;
+                direction.y = 0.5f;
             }
             else
             {
-                direction.y = -1;
+                direction.y = -0.5f;
             }
         }
     }

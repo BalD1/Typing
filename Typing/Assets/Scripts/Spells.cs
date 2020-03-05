@@ -28,7 +28,7 @@ public class Spells : MonoBehaviour
 
     // ---------------------------- SPELL LIST
 
-    private void FireBall()
+    public void FireBall()
     {
         Vector2 direction = this.transform.position;
         GameObject fireballObject = Instantiate(FireballPrefab, this.rigidbody2d.position, Quaternion.identity);
