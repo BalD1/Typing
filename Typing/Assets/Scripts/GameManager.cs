@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private int damage;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -30,5 +31,18 @@ public class GameManager : MonoBehaviour
         InGame,
         Pause,
         GameOver
+    }
+
+    public void DamageToBilly(int damageDealt)
+    {
+        this.damage = damageDealt;
+    }
+    public int BillyTookDamage()
+    {
+        return this.damage;
+    }
+    public void ResetDamage()
+    {
+        this.damage = 0;
     }
 }

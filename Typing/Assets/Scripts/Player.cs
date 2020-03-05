@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private int timerLog = 0;
+
     [SerializeField]
     private int speed = 30;
 
     [SerializeField]
-    private int hp = 3;
+    private int billyHp = 3;
+
+    float horizontal;
+    float vertical;
 
     Rigidbody2D billy2d;
 
@@ -19,13 +24,47 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+        Movment();
 
+        billyHp -= GameManager.Instance.BillyTookDamage();
+
+        GameManager.Instance.ResetDamage();
+        if (timerLog >= 60)
+        {
+            Debug.Log(billyHp);
+            timerLog = 0;
+        }
+        else
+        {
+            timerLog++;
+        }
+    }
+
+    public int GetBillyHp
+    {
+        get
+        {
+            return billyHp;
+        }
+    }
+
+    private void Movment()
+    {
         Vector2 position = billy2d.position;
         position.x = position.x + this.speed * horizontal * Time.deltaTime;
         position.y = position.y + this.speed * vertical * Time.deltaTime;
 
         this.billy2d.MovePosition(position);
     }
+
+    public Vector2 Direction()
+    {
+        Vector2 direction;
+        direction.x = horizontal;
+        direction.y = vertical;
+        return direction;
+    }
+
 }
