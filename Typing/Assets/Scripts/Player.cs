@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int billyHp = 3;
 
+    [SerializeField]
+    private int armure = 0;
+
     float horizontal;
     float vertical;
 
