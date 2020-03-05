@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject boite;
     public GameObject inputField;
+    public static string sortEcrit;
 
     private void Awake()
     {
@@ -29,7 +30,13 @@ public class UIManager : MonoBehaviour
 
     public void AfficherBoiteDeDialogue()
     {
-        boite.SetActive(true);    
+        boite.SetActive(true);
+    }
+
+    public void StoreSpell()
+    {
+        sortEcrit = inputField.GetComponent<Text>().text;
+        Debug.Log(sortEcrit);
     }
 
     public void CacherBoiteDeDialogue()

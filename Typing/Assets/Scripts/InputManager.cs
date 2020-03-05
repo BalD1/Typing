@@ -43,9 +43,11 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-
+            UIManager.Instance.StoreSpell();
             UIManager.Instance.CacherBoiteDeDialogue();
         }
 
     }
+    
+
 }
