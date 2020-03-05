@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public delegate void TypeAction();
+    public static event TypeAction OnClicked;
 
     private static InputManager instance;
     public static InputManager Instance
@@ -24,8 +26,6 @@ public class InputManager : MonoBehaviour
     }
     private void Start()
     {
-
-
         //La liste de spell
         List<string> spells = new List<string>();
 
