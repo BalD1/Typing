@@ -36,7 +36,6 @@ public class UIManager : MonoBehaviour
     public void StoreSpell()
     {
         sortEcrit = inputField.GetComponent<Text>().text;
-        Debug.Log(sortEcrit);
     }
 
     public void CacherBoiteDeDialogue()
