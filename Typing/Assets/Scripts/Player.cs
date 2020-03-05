@@ -14,12 +14,17 @@ public class Player : MonoBehaviour
 
     float horizontal;
     float vertical;
+    
+    Vector2 direction;
 
     Rigidbody2D billy2d;
 
     void Start()
     {
         this.billy2d = this.GetComponent<Rigidbody2D>();
+        direction.x = -1;
+        direction.y = 0;
+
     }
     
     void Update()
@@ -56,15 +61,16 @@ public class Player : MonoBehaviour
         Vector2 position = billy2d.position;
         position.x = position.x + this.speed * horizontal * Time.deltaTime;
         position.y = position.y + this.speed * vertical * Time.deltaTime;
-
         this.billy2d.MovePosition(position);
     }
 
     public Vector2 Direction()
     {
-        Vector2 direction;
-        direction.x = horizontal;
-        direction.y = vertical;
+        if(horizontal != 0 || vertical != 0)
+        {
+            direction.x = horizontal;
+            direction.y = vertical;
+        }
         return direction;
     }
 
