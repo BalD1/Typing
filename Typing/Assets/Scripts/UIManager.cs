@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
 
     public bool boitePresent = false;
     public GameObject boite;
-    public GameObject inputField;
+    public Text inputField;
     public static string sortEcrit;
 
     private void Awake()
