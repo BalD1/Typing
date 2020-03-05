@@ -24,8 +24,12 @@ public class InputManager : MonoBehaviour
     }
     private void Start()
     {
+
+
         //La liste de spell
-        List<Spells> spells = new List<Spells>();
+        List<string> spells = new List<string>();
+
+        spells.Add("FEU");
     }
 
     
