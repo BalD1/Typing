@@ -17,10 +17,16 @@ public class BillyHitbox : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Ennemi bwate = collision.gameObject.GetComponent<Ennemi>();
-        if(bwate != null)
+        Coeur coeur = collision.gameObject.GetComponent<Coeur>();
+        if (bwate != null)
         {
             Debug.Log("Aïe");
             GameManager.Instance.DamageToBilly(1);
+        }
+        if(coeur != null)
+        {
+            Debug.Log("Yes");
+            GameManager.Instance.HealToBilly(1);
         }
     }
 }

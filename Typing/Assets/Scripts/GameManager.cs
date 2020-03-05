@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private int damage;
+    private int heal;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -41,8 +42,18 @@ public class GameManager : MonoBehaviour
     {
         return this.damage;
     }
-    public void ResetDamage()
+    public void ResetDamageHeal()
     {
         this.damage = 0;
+        this.heal = 0;
+    }
+
+    public void HealToBilly(int healReceived)
+    {
+        this.heal = healReceived;
+    }
+    public int BillyReceivedHeal()
+    {
+        return this.heal;
     }
 }
