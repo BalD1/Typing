@@ -204,12 +204,12 @@ PrefabInstance:
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
@@ -271,6 +271,12 @@ PrefabInstance:
       propertyPath: FireballPrefab
       value: 
       objectReference: {fileID: 5467562964763909648, guid: 0edb62a4e88c88c47a8c2fa9a81485f8,
+        type: 3}
+    - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
+        type: 3}
+      propertyPath: ThunderPrefab
+      value: 
+      objectReference: {fileID: 4390712817552515454, guid: 5f5c8ec5057276243aa96ebdf2732fca,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6d2b357b60ab04985e6040cac4baf1, type: 3}

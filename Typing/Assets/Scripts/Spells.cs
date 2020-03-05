@@ -6,15 +6,19 @@ public class Spells : MonoBehaviour
 {
     [SerializeField]
     private GameObject FireballPrefab;
+    [SerializeField]
+    private GameObject ThunderPrefab;
 
     Rigidbody2D rigidbody2d;
 
     Vector2 position;
+    Vector2 direction;
 
 
     void Awake()
     {
         rigidbody2d = this.GetComponent<Rigidbody2D>();
+        direction = this.transform.position;
     }
 
 
@@ -24,13 +28,34 @@ public class Spells : MonoBehaviour
         {
             this.FireBall();
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            this.Thunder();
+        }
     }
 
     // ---------------------------- SPELL LIST
 
     public void FireBall()
     {
-        Vector2 direction = this.transform.position;
         GameObject fireballObject = Instantiate(FireballPrefab, this.rigidbody2d.position, Quaternion.identity);
+        GetSpell("FireBall");
+    }
+
+    public void Thunder()
+    {
+        GameObject thunderObject = Instantiate(ThunderPrefab, this.rigidbody2d.position, Quaternion.identity);
+        GetSpell("Thunder");
+    }
+
+    public string GetSpell(string Spell)
+    {
+        string stock;
+        stock = "";
+        if(Spell != "Call")
+        {
+            stock = Spell;
+        }
+        return stock;
     }
 }

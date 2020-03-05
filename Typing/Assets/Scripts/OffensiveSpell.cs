@@ -6,17 +6,33 @@ public class OffensiveSpell : MonoBehaviour
 {
     Vector2 position;
     Vector2 direction;
+
     float ThrowSpeed;
 
+    string TypeOfSpell;
 
     private void Start()
     {
         DirectionThrow();
-        ThrowSpeed = 1; 
-        // switch (gameObject)
-        // case (Fireball)
-        // case (Thunder)
-        // ...
+        TypeOfSpell = GameObject.Find("Billy").GetComponent<Spells>().GetSpell("Call");
+        switch (TypeOfSpell)
+        {
+            case "FireBall" :
+                ThrowSpeed = 100f;
+                break;
+            case "Thunder" :
+                ThrowSpeed = 3f;
+                break;
+            //case "Bubbles" :
+                //ThrowSpeed = 0.3f;
+                //break;
+        }
+
+    }
+
+    public void GetSpell()
+    {
+
     }
 
     private void DirectionThrow()
@@ -49,12 +65,18 @@ public class OffensiveSpell : MonoBehaviour
     void Update()
     {
         this.position = transform.position;
-        position += direction;
+        position.x = (position.x + ThrowSpeed + direction.x);
+        position.y = (position.y + ThrowSpeed + direction.y);
         transform.position = position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        Player player = collision.collider.GetComponent<Player>();
+        if (player == null)
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
