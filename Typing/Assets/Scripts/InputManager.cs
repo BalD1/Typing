@@ -38,17 +38,26 @@ public class InputManager : MonoBehaviour
     private void Update()
     {
         //Affiche la boite quand on appuie sur "T" pour l'instant
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            UIManager.Instance.AfficherBoiteDeDialogue();
-        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            UIManager.Instance.StoreSpell();
-            UIManager.Instance.CacherBoiteDeDialogue();
+            if (UIManager.Instance.boitePresent == false)
+            {
+                UIManager.Instance.AfficherBoiteDeDialogue();
+            }
+            else
+            {
+                UIManager.Instance.StoreSpell();
+                UIManager.sortEcrit = "";
+                UIManager.Instance.CacherBoiteDeDialogue();
+            }
         }
 
     }
+
+    /*public bool VerifMots()
+    {
+
+    }*/
     
 
 }
