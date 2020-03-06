@@ -8,24 +8,34 @@ public class OffensiveSpell : MonoBehaviour
     Vector2 direction;
 
     float ThrowSpeed;
+    float BubbleWiggle;
 
     string TypeOfSpell;
 
+    bool Flag;
+
+    float Timer;
+    float TimerTime;
+
     private void Start()
     {
+        Flag = false;
+        Timer = 0;
+        TimerTime = 0.3f;
+        BubbleWiggle = 4;
         DirectionThrow();
         TypeOfSpell = GameObject.Find("Billy").GetComponent<Spells>().GetSpell("Call");
         switch (TypeOfSpell)
         {
             case "FireBall" :
-                ThrowSpeed = 100f;
+                ThrowSpeed = 0;
                 break;
             case "Thunder" :
-                ThrowSpeed = 3f;
+                ThrowSpeed = 0;
                 break;
-            //case "Bubbles" :
-                //ThrowSpeed = 0.3f;
-                //break;
+            case "Water" :
+                ThrowSpeed = 0;
+                break;
         }
 
     }
@@ -42,22 +52,22 @@ public class OffensiveSpell : MonoBehaviour
         {
             if(direction.x > 0)
             {
-                direction.x = 0.5f;
+                direction.x = 4.5f;
             }
             else
             {
-                direction.x = -0.5f;
+                direction.x = -4.5f;
             }
         }
         if(direction.y != 0)
         {
             if(direction.y > 0)
             {
-                direction.y = 0.5f;
+                direction.y = 4.5f;
             }
             else
             {
-                direction.y = -0.5f;
+                direction.y = -4.5f;
             }
         }
     }
@@ -65,8 +75,34 @@ public class OffensiveSpell : MonoBehaviour
     void Update()
     {
         this.position = transform.position;
-        position.x = (position.x + ThrowSpeed + direction.x);
-        position.y = (position.y + ThrowSpeed + direction.y);
+        if (TypeOfSpell == "Water" && Timer == 0)
+        {
+            if (!Flag)
+            {
+                if (direction.x == 0)
+                {
+                    direction.x = BubbleWiggle;
+                }
+                else
+                {
+                    direction.y = BubbleWiggle;
+                }
+                Flag = true;
+            }
+            if (direction.x == BubbleWiggle || direction.x == -BubbleWiggle)
+            {
+                direction.x *= -1;
+            }
+            if (direction.y == BubbleWiggle || direction.y == -BubbleWiggle)
+            {
+                direction.y *= -1;
+            }
+                Timer = TimerTime;
+        }
+        
+        Timer = Mathf.Clamp(Timer -= Time.deltaTime, 0, TimerTime);
+        position.x = position.x + (direction.x + ThrowSpeed) * Time.deltaTime;
+        position.y = position.y + (direction.y + ThrowSpeed) * Time.deltaTime;
         transform.position = position;
     }
 
