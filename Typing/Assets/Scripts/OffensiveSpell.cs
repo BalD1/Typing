@@ -14,43 +14,54 @@ public class OffensiveSpell : MonoBehaviour
 
     bool Flag;
 
-    float Timer;
+    float WaterTimer;
     float TimerTime;
 
     private void Start()
     {
         Flag = false;
-        Timer = 0;
+
+        WaterTimer = 0;
         TimerTime = 0.3f;
+
         BubbleWiggle = 4;
+
         DirectionThrow();
+
         TypeOfSpell = GameObject.Find("Billy").GetComponent<Spells>().GetSpell("Call");
+
         switch (TypeOfSpell)
         {
-            case "FireBall" :
+            case "FireBall":
+                ThrowSpeed = 0;         // pour modifier la vitesse des projectiles
+                break;
+            case "Thunder":
                 ThrowSpeed = 0;
                 break;
-            case "Thunder" :
-                ThrowSpeed = 0;
-                break;
-            case "Water" :
+            case "Water":
                 ThrowSpeed = 0;
                 break;
         }
 
     }
 
-    public void GetSpell()
+    void Update()
     {
+        this.position = transform.position;
 
+        SpecialComportment();
+
+        position.x = position.x + (direction.x + ThrowSpeed) * Time.deltaTime;
+        position.y = position.y + (direction.y + ThrowSpeed) * Time.deltaTime;
+        transform.position = position;
     }
 
-    private void DirectionThrow()
+    private void DirectionThrow()       // vers où le sort est lancé par rapport à la position de Billy
     {
         direction = GameObject.Find("Billy").GetComponent<Player>().Direction();
-        if(direction.x != 0)
+        if (direction.x != 0)
         {
-            if(direction.x > 0)
+            if (direction.x > 0)
             {
                 direction.x = 4.5f;
             }
@@ -59,9 +70,9 @@ public class OffensiveSpell : MonoBehaviour
                 direction.x = -4.5f;
             }
         }
-        if(direction.y != 0)
+        if (direction.y != 0)
         {
-            if(direction.y > 0)
+            if (direction.y > 0)
             {
                 direction.y = 4.5f;
             }
@@ -72,38 +83,41 @@ public class OffensiveSpell : MonoBehaviour
         }
     }
 
-    void Update()
+    private void SpecialComportment()
     {
-        this.position = transform.position;
-        if (TypeOfSpell == "Water" && Timer == 0)
+        if (TypeOfSpell == "Water")
         {
-            if (!Flag)
+            if (WaterTimer == 0)
             {
-                if (direction.x == 0)
+                if (!Flag)
                 {
-                    direction.x = BubbleWiggle;
+                    if (direction.x == 0)
+                    {
+                        direction.x = BubbleWiggle;
+                    }
+                    else
+                    {
+                        direction.y = BubbleWiggle;
+                    }
+                    Flag = true;
                 }
-                else
+                if (direction.x == BubbleWiggle || direction.x == -BubbleWiggle)
                 {
-                    direction.y = BubbleWiggle;
+                    direction.x *= -1;
                 }
-                Flag = true;
+                if (direction.y == BubbleWiggle || direction.y == -BubbleWiggle)
+                {
+                    direction.y *= -1;
+                }
+                WaterTimer = TimerTime;
             }
-            if (direction.x == BubbleWiggle || direction.x == -BubbleWiggle)
-            {
-                direction.x *= -1;
-            }
-            if (direction.y == BubbleWiggle || direction.y == -BubbleWiggle)
-            {
-                direction.y *= -1;
-            }
-                Timer = TimerTime;
+            WaterTimer = Mathf.Clamp(WaterTimer -= Time.deltaTime, 0, TimerTime);
         }
-        
-        Timer = Mathf.Clamp(Timer -= Time.deltaTime, 0, TimerTime);
-        position.x = position.x + (direction.x + ThrowSpeed) * Time.deltaTime;
-        position.y = position.y + (direction.y + ThrowSpeed) * Time.deltaTime;
-        transform.position = position;
+
+        if (TypeOfSpell == "Thunder")
+        {
+
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
