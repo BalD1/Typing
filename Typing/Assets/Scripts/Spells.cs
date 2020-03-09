@@ -16,6 +16,8 @@ public class Spells : MonoBehaviour
     Vector2 position;
     Vector2 direction;
 
+    List<GameObject> MultipleSpell = new List<GameObject>();
+
 
     string SpellNameStock;
 
@@ -53,7 +55,8 @@ public class Spells : MonoBehaviour
 
     public void Thunder()
     {
-        GameObject thunderObject = Instantiate(ThunderPrefab, this.rigidbody2d.position, Quaternion.identity);
+        GameObject thunderObjectUp = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, 30f));
+        MultipleSpell.Add(thunderObjectUp);
         GetSpell("Thunder");
     }
 
@@ -75,4 +78,10 @@ public class Spells : MonoBehaviour
         }
         return Spell;
     }
+
+    public List<GameObject> ListSend()
+    {
+        return MultipleSpell;
+    }
+    
 }

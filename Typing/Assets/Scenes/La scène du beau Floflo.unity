@@ -276,7 +276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ThunderPrefab
       value: 
-      objectReference: {fileID: 4390712817552515454, guid: 5f5c8ec5057276243aa96ebdf2732fca,
+      objectReference: {fileID: 718954058326967065, guid: ca552c3c818461e4b9eb132fc5432106,
         type: 3}
     - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
