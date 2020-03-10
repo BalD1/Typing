@@ -23,7 +23,14 @@ public class UIManager : MonoBehaviour
     public GameObject panel;
     public GameObject boiteTexte;
     public Text inputField;
+
     public static string sortEcrit;
+
+    public GameObject correct;
+    public GameObject wrong;
+    private bool answer;
+
+    
 
     private void Awake()
     {
@@ -48,5 +55,10 @@ public class UIManager : MonoBehaviour
         panel.SetActive(false);
         boiteTexte.SetActive(false);
         boitePresent = false;
+    }
+
+    public void ReponseCorrecte()
+    {
+        correct.SetActive(true);
     }
 }
