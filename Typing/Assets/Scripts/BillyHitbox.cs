@@ -19,6 +19,7 @@ public class BillyHitbox : MonoBehaviour
         ArmorUp armor = collision.gameObject.GetComponent<ArmorUp>();
         Ennemi bwate = collision.gameObject.GetComponent<Ennemi>();
         Coeur coeur = collision.gameObject.GetComponent<Coeur>();
+        Coin money = collision.gameObject.GetComponent<Coin>();
         if (bwate != null)
         {
             Debug.Log("Aïe");
@@ -34,6 +35,11 @@ public class BillyHitbox : MonoBehaviour
         {
             GameManager.Instance.SetArmorUp(1);
             Destroy(armor.gameObject);
+        }
+        if (money != null)
+        {
+            Debug.Log("moneeeeey");
+            Destroy(money.gameObject);
         }
     }
 

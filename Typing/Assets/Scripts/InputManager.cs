@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
-    public UnityEvent onTyped;
-
     private static InputManager instance;
     public static InputManager Instance
     {
@@ -25,11 +23,12 @@ public class InputManager : MonoBehaviour
         instance = this;
     }
 
+    public bool valide = false;
+    
     //La liste de spell
     List<string> spells = new List<string>();
     private void Start()
     {
-
         spells.Add("feu");
         spells.Add("eau");
         spells.Add("eclair");
@@ -44,7 +43,7 @@ public class InputManager : MonoBehaviour
             UIManager.Instance.inputField.text += input;
         }
 
-        //Affiche la boite quand on appuie sur "T" pour l'instant
+        //Affiche la boite quand on appuie sur "Entrée"
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (UIManager.Instance.boitePresent == false)
@@ -57,18 +56,26 @@ public class InputManager : MonoBehaviour
             {
                 UIManager.Instance.StoreSpell();
                 Debug.Log(UIManager.sortEcrit);
-                //VerifMots();
-                //Debug.Log(VerifMots());
+                VerifMots();
+                Debug.Log(VerifMots());
                 UIManager.Instance.CacherBoiteDeDialogue();
                 UIManager.sortEcrit = "";
+                if (valide)
+                {
+                    UIManager.Instance.ReponseCorrecte();
+                }
+                else
+                {
+                    UIManager.Instance.ReponseFausse();
+                }
             }
         }
 
     }
 
-    /*public bool VerifMots()
+    public bool VerifMots()
     {
-        for (int i = 0; i<= spells.Count; i++)
+        for (int i = 0; i < spells.Count; i++)
         {
             if (UIManager.sortEcrit == spells[i])
             {
@@ -76,11 +83,6 @@ public class InputManager : MonoBehaviour
             }
         }
             return false;
-    }*/
-    
-    public void EcrireSpell()
-    {
-
     }
-
+    
 }
