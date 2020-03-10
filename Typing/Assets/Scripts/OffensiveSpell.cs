@@ -6,6 +6,7 @@ public class OffensiveSpell : MonoBehaviour
 {
     Vector2 position;
     Vector2 direction;
+    Vector2 ThunderDirection;
 
     float ThrowSpeed;
     float BubbleWiggle;
@@ -13,47 +14,52 @@ public class OffensiveSpell : MonoBehaviour
     string TypeOfSpell;
 
     bool Flag;
+    bool ThunderFlag;
 
     float WaterTimer;
     float TimerTime;
 
+    Rigidbody2D rb;
+
+    List<GameObject> MultipleSpells = new List<GameObject>();
+
     private void Start()
     {
         Flag = false;
+        ThunderFlag = false;
 
         WaterTimer = 0;
         TimerTime = 0.3f;
 
         BubbleWiggle = 4;
 
+        rb = GetComponent<Rigidbody2D>();
         DirectionThrow();
+
+        ThunderDirection = Vector2.zero;
 
         TypeOfSpell = GameObject.Find("Billy").GetComponent<Spells>().GetSpell("Call");
 
         switch (TypeOfSpell)
         {
             case "FireBall":
-                ThrowSpeed = 0;         // pour modifier la vitesse des projectiles
+                ThrowSpeed = 100;         // pour modifier la vitesse des projectiles
                 break;
             case "Thunder":
-                ThrowSpeed = 0;
+                ThrowSpeed = 70;
                 break;
             case "Water":
-                ThrowSpeed = 0;
+                ThrowSpeed = 50;
                 break;
         }
+        this.rb.AddForce(direction * ThrowSpeed);
 
     }
 
     void Update()
     {
-        this.position = transform.position;
-
         SpecialComportment();
-
-        position.x = position.x + (direction.x + ThrowSpeed) * Time.deltaTime;
-        position.y = position.y + (direction.y + ThrowSpeed) * Time.deltaTime;
-        transform.position = position;
+        
     }
 
     private void DirectionThrow()       // vers où le sort est lancé par rapport à la position de Billy
@@ -101,22 +107,74 @@ public class OffensiveSpell : MonoBehaviour
                     }
                     Flag = true;
                 }
-                if (direction.x == BubbleWiggle || direction.x == -BubbleWiggle)
+                switch (direction.x)
                 {
-                    direction.x *= -1;
+                    case 4:
+                        this.rb.velocity = Vector3.zero;
+                        this.rb.AddForce(direction * 50);
+                        direction.x *= -1;
+                        break;
+                    case -4:
+                        this.rb.velocity = Vector3.zero;
+                        this.rb.AddForce(direction * 50);
+                        direction.x *= -1;
+                        break;
                 }
-                if (direction.y == BubbleWiggle || direction.y == -BubbleWiggle)
+                switch (direction.y)
                 {
-                    direction.y *= -1;
+                    case 4:
+                        this.rb.velocity = Vector3.zero;
+                        this.rb.AddForce(direction * 50);
+                        direction.y *= -1;
+                        break;
+                    case -4:
+                        this.rb.velocity = Vector3.zero;
+                        this.rb.AddForce(direction * 50);
+                        direction.y *= -1;
+                        break;
                 }
                 WaterTimer = TimerTime;
+                        
             }
             WaterTimer = Mathf.Clamp(WaterTimer -= Time.deltaTime, 0, TimerTime);
         }
 
-        if (TypeOfSpell == "Thunder")
+        if (TypeOfSpell == "Thunder" && !ThunderFlag)
         {
+            MultipleSpells = GameObject.Find("Billy").GetComponent<Spells>().ListSend();
+            bool CanClear = false;
+            if (direction.x == 0)
+            {
+                ThunderDirection.x = 4.5f;
+            }
+            if (direction.y == 0)
+            {
+                ThunderDirection.y = 4.5f;
+            }
+            foreach (GameObject ThunderSolo in MultipleSpells)
+            {
 
+                if (ThunderSolo == this.gameObject)
+                {
+                    if(MultipleSpells.IndexOf(ThunderSolo) == 0)
+                    {
+                        this.rb.AddForce(ThunderDirection * ThrowSpeed);
+                    }
+                    else if (MultipleSpells.IndexOf(ThunderSolo) == 1)
+                    {
+                        this.rb.AddForce(-(ThunderDirection * ThrowSpeed));
+                    }
+                    else if (MultipleSpells.IndexOf(ThunderSolo) == 2)
+                    {
+                        CanClear = true;
+                    }
+                }
+            }
+            if (CanClear)
+            {
+                MultipleSpells.Clear();
+            }
+            ThunderFlag = true;
         }
     }
 
@@ -128,5 +186,10 @@ public class OffensiveSpell : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
+        else
+        {
+            Physics2D.IgnoreCollision(this.rb.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+        }
     }
+    
 }
