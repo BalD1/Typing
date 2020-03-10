@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private int billyHp = 3;
 
     [SerializeField]
-    private int armure = 0;
+    private int billyArmor = 0;
 
     float horizontal;
     float vertical;
@@ -38,13 +38,15 @@ public class Player : MonoBehaviour
         vide = Direction();
         Movment();
 
-        billyHp -= GameManager.Instance.BillyTookDamage();
-        billyHp += GameManager.Instance.BillyReceivedHeal();
+        Heal();
+        Damage();
+        Armor();
 
-        GameManager.Instance.ResetDamageHeal();
+        GameManager.Instance.ResetValues();
         if (timerLog >= 60)
         {
-            Debug.Log(billyHp);
+            Debug.Log("vie : " + billyHp);
+            Debug.Log("armure : " + billyArmor);
             timerLog = 0;
         }
         else
@@ -80,4 +82,25 @@ public class Player : MonoBehaviour
         return direction;
     }
 
+    private void Damage()
+    {
+        if(GameManager.Instance.BillyTookDamage() <= billyArmor)
+        {
+
+        }
+        else
+        {
+            this.billyHp -= (GameManager.Instance.BillyTookDamage() - billyArmor);
+        }
+    }
+
+    private void Heal()
+    {
+        this.billyHp += GameManager.Instance.BillyReceivedHeal();
+    }
+
+    private void Armor()
+    {
+        this.billyArmor += GameManager.Instance.GetArmorUp();
+    }
 }
