@@ -17,9 +17,12 @@ public class OffensiveSpell : MonoBehaviour
     bool ThunderFlag;
 
     float WaterTimer;
-    float TimerTime;
+    float WaterTimerTime;
+    float WindTimer;
+    float WindTimerTime;
 
     Rigidbody2D rb;
+    Collision2D collision2;
 
     List<GameObject> MultipleSpells = new List<GameObject>();
 
@@ -29,7 +32,9 @@ public class OffensiveSpell : MonoBehaviour
         ThunderFlag = false;
 
         WaterTimer = 0;
-        TimerTime = 0.3f;
+        WaterTimerTime = 0.3f;
+        WindTimerTime = 1.3f;
+        WindTimer = WindTimerTime;
 
         BubbleWiggle = 4;
 
@@ -51,6 +56,9 @@ public class OffensiveSpell : MonoBehaviour
             case "Water":
                 ThrowSpeed = 50;
                 break;
+            case "Wind":
+                ThrowSpeed = 100;
+                break;
         }
         this.rb.AddForce(direction * ThrowSpeed);
 
@@ -59,7 +67,6 @@ public class OffensiveSpell : MonoBehaviour
     void Update()
     {
         SpecialComportment();
-        
     }
 
     private void DirectionThrow()       // vers où le sort est lancé par rapport à la position de Billy
@@ -133,10 +140,10 @@ public class OffensiveSpell : MonoBehaviour
                         direction.y *= -1;
                         break;
                 }
-                WaterTimer = TimerTime;
+                WaterTimer = WaterTimerTime;
                         
             }
-            WaterTimer = Mathf.Clamp(WaterTimer -= Time.deltaTime, 0, TimerTime);
+            WaterTimer = Mathf.Clamp(WaterTimer -= Time.deltaTime, 0, WaterTimerTime);
         }
 
         if (TypeOfSpell == "Thunder" && !ThunderFlag)
@@ -176,6 +183,21 @@ public class OffensiveSpell : MonoBehaviour
             }
             ThunderFlag = true;
         }
+
+        if (TypeOfSpell == "Wind" && collision2 != null)
+        {
+            if (WindTimer == WindTimerTime)
+            {
+                collision2.rigidbody.AddForce(direction * 50000);       // à modifier
+            }
+            if (WindTimer == 0)
+            {
+                collision2.rigidbody.velocity = Vector3.zero;
+                Destroy(this.gameObject);
+            }
+            WindTimer = Mathf.Clamp(WindTimer - Time.deltaTime, 0, WindTimerTime);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -183,8 +205,15 @@ public class OffensiveSpell : MonoBehaviour
         Player player = collision.collider.GetComponent<Player>();
         if (player == null)
         {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            if (TypeOfSpell == "Wind")
+            {
+                collision2 = collision;
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
         }
         else
         {

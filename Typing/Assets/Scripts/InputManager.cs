@@ -32,7 +32,8 @@ public class InputManager : MonoBehaviour
     {
         spells.Add("feu");
         spells.Add("eau");
-        spells.Add("eclair");
+        spells.Add("foudre");
+        spells.Add("vent");
     }
 
     

@@ -10,6 +10,8 @@ public class Spells : MonoBehaviour
     private GameObject ThunderPrefab;
     [SerializeField]
     private GameObject WaterPrefab;
+    [SerializeField]
+    private GameObject WindPrefab;
 
     Rigidbody2D rigidbody2d;
 
@@ -45,11 +47,14 @@ public class Spells : MonoBehaviour
             case "feu":
                 this.FireBall();
                 break;
-            case "eclair":
+            case "foudre":
                 this.Thunder();
                 break;
             case "eau":
                 this.Water();
+                break;
+            case "vent":
+                this.Wind();
                 break;
             default:
                 Debug.Log("Can't launch the spell");
@@ -81,6 +86,12 @@ public class Spells : MonoBehaviour
     {
         GameObject waterObject = Instantiate(WaterPrefab, this.rigidbody2d.position, Quaternion.identity);
         GetSpell("Water");
+    }
+
+    public void Wind()
+    {
+        GameObject windObject = Instantiate(WindPrefab, this.rigidbody2d.position, Quaternion.identity);
+        GetSpell("Wind");
     }
 
     public string GetSpell(string Spell)
