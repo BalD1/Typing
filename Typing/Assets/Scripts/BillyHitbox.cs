@@ -16,6 +16,7 @@ public class BillyHitbox : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        ArmorUp armor = collision.gameObject.GetComponent<ArmorUp>();
         Ennemi bwate = collision.gameObject.GetComponent<Ennemi>();
         Coeur coeur = collision.gameObject.GetComponent<Coeur>();
         if (bwate != null)
@@ -28,6 +29,11 @@ public class BillyHitbox : MonoBehaviour
             Debug.Log("Yes");
             GameManager.Instance.HealToBilly(1);
             Destroy(coeur.gameObject);
+        }
+        if (armor != null)
+        {
+            GameManager.Instance.SetArmorUp(1);
+            Destroy(armor.gameObject);
         }
     }
 
