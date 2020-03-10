@@ -186,9 +186,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  billyHp: 3
+  billyHp: 5
   billyArmor: 0
-  CoinCount: 0
+  coinCount: 0
 --- !u!50 &804282186892172690
 Rigidbody2D:
   serializedVersion: 4
@@ -226,7 +226,7 @@ BoxCollider2D:
   m_Offset: {x: -0.022876263, y: -0.5048403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.25}
     oldSize: {x: 0.81125, y: 1.17125}
     newSize: {x: 1.0816667, y: 1.5616666}
     adaptiveTilingThreshold: 0.5
@@ -569,11 +569,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CorrectMark
       objectReference: {fileID: 0}
-    - target: {fileID: 7100751079243863145, guid: 8cb13fb6565bab14f961deac3393aa15,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cb13fb6565bab14f961deac3393aa15, type: 3}
 --- !u!4 &2365267747844145537 stripped
@@ -593,11 +588,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WrongMark
-      objectReference: {fileID: 0}
-    - target: {fileID: 520100434008578432, guid: f3ab1f8e98791f140b2439dd65bbf814,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7536826321022727156, guid: f3ab1f8e98791f140b2439dd65bbf814,
         type: 3}

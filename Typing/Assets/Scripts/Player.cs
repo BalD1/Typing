@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private int speed = 30;
 
     [SerializeField]
-    private int billyHp = 3;
+    private int billyHp = 5;
 
     [SerializeField]
     private int billyArmor = 0;
