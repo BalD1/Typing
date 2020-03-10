@@ -38,7 +38,7 @@ public class BillyHitbox : MonoBehaviour
         }
         if (money != null)
         {
-            Debug.Log("moneeeeey");
+            GameManager.Instance.AddCoin(1);
             Destroy(money.gameObject);
         }
     }

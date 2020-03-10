@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private int billyArmor = 0;
 
     [SerializeField]
-    private int CoinCount = 0;
+    private int coinCount = 0;
 
     float horizontal;
     float vertical;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         Heal();
         Damage();
         Armor();
+        Money();
 
         GameManager.Instance.ResetValues();
 
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("vie : " + billyHp);
             Debug.Log("armure : " + billyArmor);
+            Debug.Log("money : " + coinCount);
             timerLog = 0;
         }
         else
@@ -102,5 +104,10 @@ public class Player : MonoBehaviour
     private void Armor()
     {
         this.billyArmor += GameManager.Instance.GetArmorUp();
+    }
+
+    private void Money()
+    {
+        this.coinCount += GameManager.Instance.GetCoin();
     }
 }

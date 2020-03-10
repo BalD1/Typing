@@ -55,8 +55,12 @@ public class Spells : MonoBehaviour
 
     public void Thunder()
     {
-        GameObject thunderObjectUp = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, 30f));
+        GameObject thunderObjectUp = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, -30f));
+        GameObject thunderObjectDown = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, 30f));
+        GameObject thunderObjectFront = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.identity);
         MultipleSpell.Add(thunderObjectUp);
+        MultipleSpell.Add(thunderObjectDown);
+        MultipleSpell.Add(thunderObjectFront);
         GetSpell("Thunder");
     }
 
