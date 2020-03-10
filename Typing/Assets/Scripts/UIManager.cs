@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         timerMarkChange = timerMark;
-        numOfHearts = billy.GetBillyHp;
+        numOfHearts = GameManager.Instance.SendBillyHp();
         
     }
 
@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < hearts.Length; i++)
         {
             
-            if (i < billy.GetBillyHp)
+            if (i < GameManager.Instance.SendBillyHp())
             {
                 hearts[i].sprite = fullHearts;
             }

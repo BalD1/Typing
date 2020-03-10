@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private int armor;
     private int coin;
 
+    private int hp = 3;
+
     private static GameManager instance;
     public static GameManager Instance
     {
@@ -77,5 +79,14 @@ public class GameManager : MonoBehaviour
     public int GetCoin()
     {
         return this.coin;
+    }
+
+    public void GetBillyHp(int billyHp)
+    {
+        this.hp = billyHp;
+    }
+    public int SendBillyHp()
+    {
+        return this.hp;
     }
 }

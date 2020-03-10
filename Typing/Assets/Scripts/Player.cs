@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         Damage();
         Armor();
         Money();
+        GameManager.Instance.GetBillyHp(billyHp);
 
         GameManager.Instance.ResetValues();
 
@@ -58,14 +59,6 @@ public class Player : MonoBehaviour
         else
         {
             timerLog++;
-        }
-    }
-
-    public int GetBillyHp
-    {
-        get
-        {
-            return billyHp;
         }
     }
 
