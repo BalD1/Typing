@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     private int damage;
     private int heal;
     private int armor;
+    private int coin;
 
     private static GameManager instance;
     public static GameManager Instance
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
         this.damage = 0;
         this.heal = 0;
         this.armor = 0;
+        this.coin = 0;
     }
 
     public void SetArmorUp(int armorup)
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
     public int GetArmorUp()
     {
-        return armor;
+        return this.armor;
     }
 
     public void HealToBilly(int healReceived)
@@ -66,5 +68,14 @@ public class GameManager : MonoBehaviour
     public int BillyReceivedHeal()
     {
         return this.heal;
+    }
+
+    public void AddCoin(int coinAdd)
+    {
+        this.coin = coinAdd;
+    }
+    public int GetCoin()
+    {
+        return this.coin;
     }
 }
