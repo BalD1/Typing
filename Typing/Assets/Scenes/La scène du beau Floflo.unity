@@ -261,28 +261,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Billy
       objectReference: {fileID: 0}
-    - target: {fileID: 804282186892172694, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: FireballPrefab
-      value: 
-      objectReference: {fileID: 5467562964763909648, guid: 0edb62a4e88c88c47a8c2fa9a81485f8,
-        type: 3}
-    - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: ThunderPrefab
-      value: 
-      objectReference: {fileID: 718954058326967065, guid: ca552c3c818461e4b9eb132fc5432106,
-        type: 3}
-    - target: {fileID: 1309873995095620628, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: WaterPrefab
-      value: 
-      objectReference: {fileID: 5068367432171172151, guid: 1ab39997d159e414aa38d064986fe283,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6d2b357b60ab04985e6040cac4baf1, type: 3}
