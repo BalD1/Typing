@@ -122,8 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 158909352}
   - component: {fileID: 158909351}
-  - component: {fileID: 158909350}
   - component: {fileID: 158909353}
+  - component: {fileID: 158909350}
   m_Layer: 0
   m_Name: Cecile
   m_TagString: Untagged
@@ -140,11 +140,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 158909349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e77f600ee4b614282206db388db4ce, type: 3}
+  m_Script: {fileID: 11500000, guid: cb9bf87d793c7174c808be435e8a61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  stoppingDistance: 2
+  speed: 8
+  stoppingDistance: 0
 --- !u!212 &158909351
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -201,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158909349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.647, y: 0.193, z: 0}
+  m_LocalPosition: {x: 23.56, y: 1.49, z: 0}
   m_LocalScale: {x: 0.702, y: 0.702, z: 0.702}
   m_Children: []
   m_Father: {fileID: 0}
@@ -214,7 +214,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158909349}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -262,6 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f80db5fb51ae6845a08edf08bda0591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTyped:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &358050905
 Transform:
   m_ObjectHideFlags: 0
@@ -387,7 +390,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ead72e99d75b0341af8b82833871b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boite: {fileID: 0}
+  boitePresent: 0
+  panel: {fileID: 0}
+  boiteTexte: {fileID: 0}
   inputField: {fileID: 0}
 --- !u!4 &598223122
 Transform:
@@ -413,12 +418,12 @@ PrefabInstance:
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.92
+      value: -5.1
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.06
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
