@@ -166,7 +166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b4d5792da5c3e4daa38974d8424ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireballPrefab: {fileID: 0}
+  FireballPrefab: {fileID: 5467562964763909648, guid: 0edb62a4e88c88c47a8c2fa9a81485f8,
+    type: 3}
+  ThunderPrefab: {fileID: 718954058326967065, guid: ca552c3c818461e4b9eb132fc5432106,
+    type: 3}
+  WaterPrefab: {fileID: 5068367432171172151, guid: 1ab39997d159e414aa38d064986fe283,
+    type: 3}
 --- !u!114 &804282186892172685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  hp: 3
+  billyHp: 3
+  armure: 0
 --- !u!50 &804282186892172690
 Rigidbody2D:
   serializedVersion: 4
