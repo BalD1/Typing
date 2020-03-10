@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6464967460398541463}
   - component: {fileID: 7979174031254065528}
-  - component: {fileID: 2136467052614747974}
   - component: {fileID: 3612247931464744759}
+  - component: {fileID: 1585809964359129258}
   m_Layer: 0
   m_Name: Cecile
   m_TagString: Untagged
@@ -81,20 +81,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2136467052614747974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2970367923341887265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e77f600ee4b614282206db388db4ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  stoppingDistance: 2
 --- !u!61 &3612247931464744759
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -121,3 +107,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 0.9320784}
   m_EdgeRadius: 0
+--- !u!114 &1585809964359129258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2970367923341887265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb9bf87d793c7174c808be435e8a61c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  stoppingDistance: 2
