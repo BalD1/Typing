@@ -57,8 +57,8 @@ public class InputManager : MonoBehaviour
             {
                 UIManager.Instance.StoreSpell();
                 Debug.Log(UIManager.sortEcrit);
-                VerifMots();
-                Debug.Log(VerifMots());
+                //VerifMots();
+                //Debug.Log(VerifMots());
                 UIManager.Instance.CacherBoiteDeDialogue();
                 UIManager.sortEcrit = "";
             }
@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour
 
     }
 
-    public bool VerifMots()
+    /*public bool VerifMots()
     {
         for (int i = 0; i<= spells.Count; i++)
         {
@@ -76,7 +76,7 @@ public class InputManager : MonoBehaviour
             }
         }
             return false;
-    }
+    }*/
     
     public void EcrireSpell()
     {
