@@ -23,7 +23,8 @@ public class InputManager : MonoBehaviour
         instance = this;
     }
 
-    private float timer;
+    public bool valide = false;
+    
     //La liste de spell
     List<string> spells = new List<string>();
     private void Start()
@@ -59,6 +60,14 @@ public class InputManager : MonoBehaviour
                 Debug.Log(VerifMots());
                 UIManager.Instance.CacherBoiteDeDialogue();
                 UIManager.sortEcrit = "";
+                if (valide)
+                {
+                    UIManager.Instance.ReponseCorrecte();
+                }
+                else
+                {
+                    UIManager.Instance.ReponseFausse();
+                }
             }
         }
 

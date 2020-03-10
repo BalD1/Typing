@@ -28,13 +28,41 @@ public class UIManager : MonoBehaviour
 
     public GameObject correct;
     public GameObject wrong;
-    private bool answer;
+
+    [SerializeField]
+    private float timerMark = 1.5f;
+
+    [SerializeField]
+    private float timerMarkChange;
+    private bool goTimer = false;
+
+    private bool oui;
 
     
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        timerMarkChange = timerMark;
+    }
+
+    private void Update()
+    {
+        if (goTimer)
+        {
+            timerMarkChange -= Time.deltaTime;
+            if (timerMarkChange <= 0)
+            {
+                timerMarkChange = timerMark;
+                goTimer = false;
+                correct.SetActive(false);
+                wrong.SetActive(false);
+            }
+        }
     }
 
     public void AfficherBoiteDeDialogue()
@@ -59,6 +87,23 @@ public class UIManager : MonoBehaviour
 
     public void ReponseCorrecte()
     {
-        correct.SetActive(true);
+        correct.SetActive(true); 
+        goTimer = true;
+        oui = true;
+        if (!oui)
+        {
+            wrong.SetActive(false);
+        }
+    }
+
+    public void ReponseFausse()
+    {
+        wrong.SetActive(true);
+        goTimer = true;
+        oui = false;
+        if (oui)
+        {
+            correct.SetActive(false);
+        }
     }
 }
