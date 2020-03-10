@@ -24,6 +24,7 @@ public class InputManager : MonoBehaviour
     }
 
     public bool valide = false;
+    public string SortEcrit;
     
     //La liste de spell
     List<string> spells = new List<string>();
@@ -55,19 +56,22 @@ public class InputManager : MonoBehaviour
             else
             {
                 UIManager.Instance.StoreSpell();
-                Debug.Log(UIManager.sortEcrit);
+
                 VerifMots();
-                Debug.Log(VerifMots());
+
                 UIManager.Instance.CacherBoiteDeDialogue();
-                UIManager.sortEcrit = "";
+
                 if (valide)
                 {
                     UIManager.Instance.ReponseCorrecte();
+                    GameObject.Find("Billy").GetComponent<Spells>().SpellLaunch(UIManager.sortEcrit);
+                    this.valide = false;
                 }
                 else
                 {
                     UIManager.Instance.ReponseFausse();
                 }
+                UIManager.sortEcrit = "";
             }
         }
 
@@ -75,14 +79,16 @@ public class InputManager : MonoBehaviour
 
     public bool VerifMots()
     {
-        for (int i = 0; i < spells.Count; i++)
+        foreach(string spell in spells)
         {
-            if (UIManager.sortEcrit == spells[i])
+            SortEcrit = UIManager.sortEcrit.Replace("\r", "");
+            if (SortEcrit == spell)
             {
+                this.valide = true;
                 return true;
             }
         }
-            return false;
+        return false;
     }
     
 }
