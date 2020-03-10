@@ -37,6 +37,6 @@ public class AuraSpells : MonoBehaviour
 
     private void Bouclier()
     {
-
+        GameManager.Instance.SetArmorUp(1);
     }
 }

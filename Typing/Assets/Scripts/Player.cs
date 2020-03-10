@@ -84,13 +84,13 @@ public class Player : MonoBehaviour
 
     private void Damage()
     {
-        if(GameManager.Instance.BillyTookDamage() != 0 && billyArmor != 0)
+        if(GameManager.Instance.BillyTookDamage() <= billyArmor)
         {
-            this.billyHp -= (GameManager.Instance.BillyTookDamage() - billyArmor);
+
         }
         else
         {
-            this.billyHp -= GameManager.Instance.BillyTookDamage();
+            this.billyHp -= (GameManager.Instance.BillyTookDamage() - billyArmor);
         }
     }
 
