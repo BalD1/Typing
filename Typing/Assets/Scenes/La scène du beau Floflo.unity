@@ -256,25 +256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 804282186892172691, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 804282186892172694, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_Name
       value: Billy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791162608610771178, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 8791162608610771184, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c6d2b357b60ab04985e6040cac4baf1, type: 3}

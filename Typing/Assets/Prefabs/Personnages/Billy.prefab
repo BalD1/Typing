@@ -170,7 +170,7 @@ MonoBehaviour:
     type: 3}
   ThunderPrefab: {fileID: 718954058326967065, guid: ca552c3c818461e4b9eb132fc5432106,
     type: 3}
-  WaterPrefab: {fileID: 5068367432171172151, guid: 1ab39997d159e414aa38d064986fe283,
+  WaterPrefab: {fileID: 4412917443916773726, guid: a6de732339b4bce46a06452218082d69,
     type: 3}
 --- !u!114 &804282186892172685
 MonoBehaviour:
@@ -187,6 +187,7 @@ MonoBehaviour:
   speed: 30
   billyHp: 3
   billyArmor: 0
+  CoinCount: 0
 --- !u!50 &804282186892172690
 Rigidbody2D:
   serializedVersion: 4
@@ -215,7 +216,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804282186892172694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
