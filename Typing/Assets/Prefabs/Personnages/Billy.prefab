@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 804282186892172691}
   m_Layer: 14
   m_Name: Billy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   billyHp: 3
-  armure: 0
+  billyArmor: 0
 --- !u!50 &804282186892172690
 Rigidbody2D:
   serializedVersion: 4

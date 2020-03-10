@@ -9,10 +9,12 @@ public class Ennemi : MonoBehaviour
     public float stoppingDistance;
 
     private Transform target;
+    Rigidbody2D cecileBody;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        this.cecileBody = this.GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -22,6 +24,5 @@ public class Ennemi : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
     }
-
 
 }
