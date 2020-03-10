@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
 
     public Image[] hearts;
     public Sprite fullHearts;
-    public Sprite emptyHearts;
+    public Sprite halfHearts;
 
     public bool boitePresent = false;
     public GameObject panel;
@@ -81,9 +81,13 @@ public class UIManager : MonoBehaviour
             {
                 hearts[i].sprite = fullHearts;
             }
+            else if(i == GameManager.Instance.SendBillyHp())
+            {
+                hearts[i].sprite = halfHearts;
+            }
             else
             {
-                hearts[i].sprite = emptyHearts;
+                hearts[i].sprite = null;
             }
             if (i < numOfHearts)
             {
