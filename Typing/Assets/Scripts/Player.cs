@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int billyArmor = 0;
 
+    [SerializeField]
+    private int CoinCount = 0;
+
     float horizontal;
     float vertical;
 
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
         Armor();
 
         GameManager.Instance.ResetValues();
+
         if (timerLog >= 60)
         {
             Debug.Log("vie : " + billyHp);
@@ -84,11 +88,7 @@ public class Player : MonoBehaviour
 
     private void Damage()
     {
-        if(GameManager.Instance.BillyTookDamage() <= billyArmor)
-        {
-
-        }
-        else
+        if (GameManager.Instance.BillyTookDamage() > billyArmor)
         {
             this.billyHp -= (GameManager.Instance.BillyTookDamage() - billyArmor);
         }
