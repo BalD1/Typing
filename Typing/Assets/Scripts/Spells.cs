@@ -20,28 +20,41 @@ public class Spells : MonoBehaviour
 
 
     string SpellNameStock;
+    string SortEcrit;
 
     void Awake()
     {
         rigidbody2d = this.GetComponent<Rigidbody2D>();
         direction = this.transform.position;
         SpellNameStock = "";
+        SortEcrit = "";
+        
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        
+    }
+
+    public void SpellLaunch(string SortEcrit)
+    {
+        SortEcrit = UIManager.sortEcrit.Replace("\r", "");
+        switch (SortEcrit)
         {
-            this.FireBall();
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            this.Thunder();
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            this.Water();
+            case "feu":
+                this.FireBall();
+                break;
+            case "eclair":
+                this.Thunder();
+                break;
+            case "eau":
+                this.Water();
+                break;
+            default:
+                Debug.Log("Can't launch the spell");
+                break;
+
         }
     }
 
