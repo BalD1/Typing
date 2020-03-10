@@ -19,6 +19,15 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
+    private Player billy = new Player();
+    [SerializeField]
+    private int numOfHearts;
+
+    public Image[] hearts;
+    public Sprite fullHearts;
+    public Sprite emptyHearts;
+
     public bool boitePresent = false;
     public GameObject panel;
     public GameObject boiteTexte;
@@ -48,6 +57,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         timerMarkChange = timerMark;
+        numOfHearts = billy.GetBillyHp;
+        
     }
 
     private void Update()
@@ -61,6 +72,26 @@ public class UIManager : MonoBehaviour
                 goTimer = false;
                 correct.SetActive(false);
                 wrong.SetActive(false);
+            }
+        }
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            
+            if (i < billy.GetBillyHp)
+            {
+                hearts[i].sprite = fullHearts;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHearts;
+            }
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
             }
         }
     }
