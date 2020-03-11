@@ -25,15 +25,27 @@ public class InputManager : MonoBehaviour
 
     public bool valide = false;
     public string SortEcrit;
+    public string NewSpellName;
     
     //La liste de spell
+
     List<string> spells = new List<string>();
+    List<bool> LearnedSpells = new List<bool>();
+
     private void Start()
     {
+        spells.Add("devmode");              // DEVMODE
         spells.Add("feu");
         spells.Add("eau");
         spells.Add("foudre");
         spells.Add("vent");
+
+        LearnedSpells.Add(true);            // DEVMODE
+        LearnedSpells.Add(true);
+        for (int i = 1; i < spells.Count; i++)
+        {
+            LearnedSpells.Add(false);
+        }
     }
 
     
@@ -76,6 +88,26 @@ public class InputManager : MonoBehaviour
             }
         }
 
+        if (GameManager.Instance.SendLearnSpell() != "")
+        {
+            this.UnlockingSpells();
+            GameManager.Instance.ResetLearning();
+        }
+
+    }
+
+    public void UnlockingSpells()
+    {
+        NewSpellName = GameManager.Instance.SendLearnSpell();
+        NewSpellName = NewSpellName.Replace("\r", "");
+        foreach(string spell in spells)
+        {
+            if (spell == NewSpellName)
+            {
+                LearnedSpells[spells.IndexOf(spell)] = true;
+            }
+        }
+
     }
 
     public bool VerifMots()
@@ -83,13 +115,26 @@ public class InputManager : MonoBehaviour
         foreach(string spell in spells)
         {
             SortEcrit = UIManager.sortEcrit.Replace("\r", "");
-            if (SortEcrit == spell)
+            if (SortEcrit == spell && LearnedSpells[spells.IndexOf(spell)] == true)
             {
+                if (SortEcrit == "devmode")                     // DEVMODE
+                {
+                    this.DevMode();
+                }
                 this.valide = true;
                 return true;
             }
         }
+        
         return false;
+    }
+
+    private void DevMode()                          // DEVMODE
+    {
+        for (int i = 1; i < LearnedSpells.Count; i++)
+        {
+            LearnedSpells[i] = true;
+        }
     }
     
 }

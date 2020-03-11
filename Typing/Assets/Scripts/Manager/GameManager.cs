@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private int armor;
     private int coin;
 
+    private string LearnSpellByGrimory;
+
     private int hp = 10;
 
     private static GameManager instance;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        LearnSpellByGrimory = "";
     }
 
     enum GameState
@@ -42,10 +45,12 @@ public class GameManager : MonoBehaviour
     {
         this.damage = damageDealt;
     }
+
     public int BillyTookDamage()
     {
         return this.damage;
     }
+
     public void ResetValues()
     {
         this.damage = 0;
@@ -58,6 +63,7 @@ public class GameManager : MonoBehaviour
     {
         this.armor = armorup;
     }
+
     public int GetArmorUp()
     {
         return this.armor;
@@ -67,6 +73,7 @@ public class GameManager : MonoBehaviour
     {
         this.heal = healReceived;
     }
+
     public int BillyReceivedHeal()
     {
         return this.heal;
@@ -76,6 +83,7 @@ public class GameManager : MonoBehaviour
     {
         this.coin = coinAdd;
     }
+
     public int GetCoin()
     {
         return this.coin;
@@ -85,8 +93,30 @@ public class GameManager : MonoBehaviour
     {
         this.hp = billyHp;
     }
+
     public int SendBillyHp()
     {
         return this.hp;
+    }
+
+    public void GetLearnSpell(string LearnSpell)
+    {
+        this.LearnSpellByGrimory = LearnSpell;
+        Debug.Log(LearnSpellByGrimory);
+    }
+
+    public string SendLearnSpell()
+    {
+        return this.LearnSpellByGrimory;
+    }
+
+    public void ResetLearning()
+    {
+        this.LearnSpellByGrimory = "";
+    }
+
+    public void DevMode()
+    {
+
     }
 }

@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private Image barImage;
 
-    public const int MANA_MAX = 100;
+    public const int MANA_MAX = 500;
 
     private float manaAmount;
     private float manaRegenAmount;
@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        manaAmount = 0;
+        manaAmount = MANA_MAX;
         manaRegenAmount = 2.5f;
     }
 
@@ -81,6 +81,7 @@ public class UIManager : MonoBehaviour
                 goTimer = false;
                 correct.SetActive(false);
                 wrong.SetActive(false);
+                manaPotion.SetActive(false);
             }
         }
 
@@ -153,15 +154,17 @@ public class UIManager : MonoBehaviour
     {
         wrong.SetActive(true);
         goTimer = true;
-        oui = false;
+        oui = true;
         if (oui)
         {
             correct.SetActive(false);
         }
     }
-//----------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------
 
-//---------------------------------------  LA BARRE DE MANA  -----------------------------------
+    //---------------------------------------  LA BARRE DE MANA  -----------------------------------
+
+    public GameObject manaPotion;
 
     public void SpendMana(float amount)
     {
@@ -169,7 +172,28 @@ public class UIManager : MonoBehaviour
         {
             manaAmount -= amount;
         }
+        else
+        {
+            NoManaLeft();
+        }
 
+    }
+
+    private void NoManaLeft()
+    {
+        manaPotion.SetActive(true);
+        wrong.SetActive(true);
+        goTimer = true;
+        oui = false;
+        if (oui)
+        {
+            correct.SetActive(false);
+        }
+    }
+
+    public bool NoMana(float amount)
+    {
+        return manaAmount < amount;
     }
 
     public float GetManaNormalized()
