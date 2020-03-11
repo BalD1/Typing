@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 804282186863085955}
   - component: {fileID: 2086335554756625765}
-  - component: {fileID: 804282186863085954}
+  - component: {fileID: 8241016889979247809}
+  - component: {fileID: 1666792245744233901}
+  - component: {fileID: 7647293102018879577}
   m_Layer: 8
   m_Name: Hit box
   m_TagString: Untagged
@@ -44,8 +46,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a300f6c51606ab34e8e2b4aafc09f340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &804282186863085954
-BoxCollider2D:
+--- !u!60 &8241016889979247809
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186863085952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.073501386, y: 0.33148712}
+      - {x: -0.26854354, y: 0.3335174}
+      - {x: -0.26596865, y: 0.003530085}
+      - {x: -0.41278177, y: -0.5885129}
+      - {x: 0.19577783, y: -0.59551287}
+      - {x: 0.15837488, y: -0.3080018}
+      - {x: 0.05275932, y: 0.08269631}
+      - {x: 0.08304006, y: 0.27401638}
+--- !u!50 &1666792245744233901
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186863085952}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &7647293102018879577
+CompositeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -57,19 +113,40 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018911302, y: -0.1481657}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6648611, y: 0.7036686}
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
   m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 8241016889979247809}
+    m_ColliderPaths:
+    - - X: -735013
+        Y: 3314871
+      - X: -2685435
+        Y: 3335174
+      - X: -2659686
+        Y: 35300
+      - X: -4127817
+        Y: -5885129
+      - X: 1957778
+        Y: -5955128
+      - X: 1583748
+        Y: -3080017
+      - X: 527593
+        Y: 826963
+      - X: 830400
+        Y: 2740163
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.1583748, y: -0.3080017}
+      - {x: 0.0527593, y: 0.0826963}
+      - {x: 0.08304, y: 0.2740163}
+      - {x: -0.073501304, y: 0.3314871}
+      - {x: -0.2685435, y: 0.3335174}
+      - {x: -0.2659686, y: 0.00353}
+      - {x: -0.41278172, y: -0.5885129}
+      - {x: 0.1957778, y: -0.5955128}
+  m_VertexDistance: 0.0005
 --- !u!1 &804282186892172694
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,6 +161,7 @@ GameObject:
   - component: {fileID: 804282186892172685}
   - component: {fileID: 804282186892172690}
   - component: {fileID: 804282186892172691}
+  - component: {fileID: 1909714536}
   m_Layer: 14
   m_Name: Billy
   m_TagString: Player
@@ -239,6 +317,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76549745, y: 0.16156948}
   m_EdgeRadius: 0
+--- !u!95 &1909714536
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186892172694}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d790e4aaf7b0dd4a9fb1c0c5b8ebcbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4151181653287842206
 GameObject:
   m_ObjectHideFlags: 0
