@@ -105,7 +105,7 @@ public class Spells : MonoBehaviour
 
     public void Wind()
     {
-        if (UIManager.Instance.NoMana(50))
+        if (UIManager.Instance.NoMana(80))
         {
             return;
         }
