@@ -19,6 +19,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private Image barImage;
+
+    public const int MANA_MAX = 100;
+
+    private float manaAmount;
+    private float manaRegenAmount;
 
     private Player billy = new Player();
     [SerializeField]
@@ -26,7 +33,7 @@ public class UIManager : MonoBehaviour
 
     public Image[] hearts;
     public Sprite fullHearts;
-    public Sprite emptyHearts;
+    public Sprite halfHearts;
 
     public bool boitePresent = false;
     public GameObject panel;
@@ -52,6 +59,8 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        manaAmount = 0;
+        manaRegenAmount = 2.5f;
     }
 
     private void Start()
@@ -74,6 +83,8 @@ public class UIManager : MonoBehaviour
                 wrong.SetActive(false);
             }
         }
+
+//----------------------------------------------------------  Les coeurs  ---------------------------------
         for (int i = 0; i < hearts.Length; i++)
         {
             
@@ -81,9 +92,13 @@ public class UIManager : MonoBehaviour
             {
                 hearts[i].sprite = fullHearts;
             }
+            else if(i == GameManager.Instance.SendBillyHp())
+            {
+                hearts[i].sprite = halfHearts;
+            }
             else
             {
-                hearts[i].sprite = emptyHearts;
+                hearts[i].sprite = null;
             }
             if (i < numOfHearts)
             {
@@ -94,7 +109,14 @@ public class UIManager : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+        manaAmount += manaRegenAmount * Time.deltaTime;
+        manaAmount = Mathf.Clamp(manaAmount, 0, MANA_MAX);
+        barImage.fillAmount = GetManaNormalized();
+
     }
+//----------------------------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------  La boite de dialogue qui s'affiche ou non + les inputs  -------------------
 
     public void AfficherBoiteDeDialogue()
     {
@@ -136,5 +158,22 @@ public class UIManager : MonoBehaviour
         {
             correct.SetActive(false);
         }
+    }
+//----------------------------------------------------------------------------------------------
+
+//---------------------------------------  LA BARRE DE MANA  -----------------------------------
+
+    public void SpendMana(float amount)
+    {
+        if(manaAmount >= amount)
+        {
+            manaAmount -= amount;
+        }
+
+    }
+
+    public float GetManaNormalized()
+    {
+        return manaAmount / MANA_MAX;
     }
 }

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private int armor;
     private int coin;
 
-    private int hp = 5;
+    private int hp = 10;
 
     private static GameManager instance;
     public static GameManager Instance
