@@ -180,11 +180,11 @@ public class OffensiveSpell : MonoBehaviour
             bool CanClear = false;
             if (direction.x == 0)
             {
-                ThunderDirection.x = 4.5f;
+                ThunderDirection.x = 1.5f;
             }
             if (direction.y == 0)
             {
-                ThunderDirection.y = 4.5f;
+                ThunderDirection.y = 1.5f;
             }
             foreach (GameObject ThunderSolo in MultipleSpells)
             {
