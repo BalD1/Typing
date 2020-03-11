@@ -60,31 +60,34 @@ public class InputManager : MonoBehaviour
         //Affiche la boite quand on appuie sur "Entrée"
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (UIManager.Instance.boitePresent == false)
+            if (UIManager.Instance.correct.activeSelf == false && UIManager.Instance.wrong.activeSelf == false)
             {
-                UIManager.Instance.AfficherBoiteDeDialogue();
-                UIManager.Instance.inputField.text = "";
-
-            }
-            else
-            {
-                UIManager.Instance.StoreSpell();
-
-                VerifMots();
-
-                UIManager.Instance.CacherBoiteDeDialogue();
-
-                if (valide)
+                if (UIManager.Instance.boitePresent == false)
                 {
-                    UIManager.Instance.ReponseCorrecte();
-                    GameObject.Find("Billy").GetComponent<Spells>().SpellLaunch(UIManager.sortEcrit);
-                    this.valide = false;
+                    UIManager.Instance.AfficherBoiteDeDialogue();
+                    UIManager.Instance.inputField.text = "";
+
                 }
                 else
                 {
-                    UIManager.Instance.ReponseFausse();
+                    UIManager.Instance.StoreSpell();
+
+                    VerifMots();
+
+                    UIManager.Instance.CacherBoiteDeDialogue();
+
+                    if (valide)
+                    {
+                        UIManager.Instance.ReponseCorrecte();
+                        GameObject.Find("Billy").GetComponent<Spells>().SpellLaunch(UIManager.sortEcrit);
+                        this.valide = false;
+                    }
+                    else
+                    {
+                        UIManager.Instance.ReponseFausse();
+                    }
+                    UIManager.sortEcrit = "";
                 }
-                UIManager.sortEcrit = "";
             }
         }
 
