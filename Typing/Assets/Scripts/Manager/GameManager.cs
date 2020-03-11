@@ -6,11 +6,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private int damage;
+    private int damageToHostile;
     private int heal;
     private int armor;
     private int coin;
 
     private string LearnSpellByGrimory;
+    private string typeOfSpell;
 
     private int hp = 10;
 
@@ -49,6 +51,31 @@ public class GameManager : MonoBehaviour
     public int BillyTookDamage()
     {
         return this.damage;
+    }
+
+    public void DamageToHostile(int damageTaken)
+    {
+        this.damageToHostile = damageTaken;
+    }
+
+    public void ResetDamageToHostile()
+    {
+        this.damageToHostile = 0;
+    }
+
+    public void GetTypeOfSpell(string type)
+    {
+        this.typeOfSpell = type;
+    }
+
+    public string SendTypeOfSpell()
+    {
+        return this.typeOfSpell;
+    }
+
+    public int EnnemiTookDamage()
+    {
+        return this.damageToHostile;
     }
 
     public void ResetValues()

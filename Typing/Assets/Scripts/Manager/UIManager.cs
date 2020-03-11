@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     public GameObject wrong;
 
     [SerializeField]
-    private float timerMark = 1.5f;
+    private float timerMark = 0.7f;
 
     [SerializeField]
     private float timerMarkChange;
