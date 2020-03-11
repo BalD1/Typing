@@ -67,31 +67,51 @@ public class Spells : MonoBehaviour
 
     public void FireBall()
     {
+        if (UIManager.Instance.NoMana(50))
+        {
+            return;
+        }
         GameObject fireballObject = Instantiate(FireballPrefab, this.rigidbody2d.position, Quaternion.identity);
         GetSpell("FireBall");
+        UIManager.Instance.SpendMana(50);
     }
 
     public void Thunder()
     {
-        GameObject thunderObjectUp = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, -30f));
-        GameObject thunderObjectDown = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, 30f));
+        if (UIManager.Instance.NoMana(75))
+        {
+            return;
+        }
+        GameObject thunderObjectUp = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, -20f));
+        GameObject thunderObjectDown = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.Euler(0f, 0f, 20f));
         GameObject thunderObjectFront = Instantiate(ThunderPrefab, this.rigidbody2d.position, transform.rotation * Quaternion.identity);
         MultipleSpell.Add(thunderObjectUp);
         MultipleSpell.Add(thunderObjectDown);
         MultipleSpell.Add(thunderObjectFront);
         GetSpell("Thunder");
+        UIManager.Instance.SpendMana(75);
     }
 
     public void Water()
     {
+        if (UIManager.Instance.NoMana(40))
+        {
+            return;
+        }
         GameObject waterObject = Instantiate(WaterPrefab, this.rigidbody2d.position, Quaternion.identity);
         GetSpell("Water");
+        UIManager.Instance.SpendMana(40);
     }
 
     public void Wind()
     {
+        if (UIManager.Instance.NoMana(50))
+        {
+            return;
+        }
         GameObject windObject = Instantiate(WindPrefab, this.rigidbody2d.position, Quaternion.identity);
         GetSpell("Wind");
+        UIManager.Instance.SpendMana(80);
     }
 
     public string GetSpell(string Spell)
