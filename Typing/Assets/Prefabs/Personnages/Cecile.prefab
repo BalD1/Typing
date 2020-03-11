@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6464967460398541463}
   - component: {fileID: 7979174031254065528}
   - component: {fileID: 3612247931464744759}
-  - component: {fileID: 1585809964359129258}
+  - component: {fileID: 7575900994151206185}
   - component: {fileID: 1906100948}
   m_Layer: 0
   m_Name: Cecile
@@ -108,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 0.9320784}
   m_EdgeRadius: 0
---- !u!114 &1585809964359129258
+--- !u!114 &7575900994151206185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,11 +117,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2970367923341887265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9bf87d793c7174c808be435e8a61c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a88d6cc7bc7f2d4ea77131a8526805c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  stoppingDistance: 1
+  stoppingDistance: 0
 --- !u!50 &1906100948
 Rigidbody2D:
   serializedVersion: 4

@@ -58,6 +58,15 @@ public class GameManager : MonoBehaviour
         this.damageToHostile = damageTaken;
     }
 
+    public int EnnemiTookDamage()
+    {
+        if (damageToHostile != 0)
+        {
+            return this.damageToHostile;
+        }
+        return 0;
+    }
+
     public void ResetDamageToHostile()
     {
         this.damageToHostile = 0;
@@ -71,11 +80,6 @@ public class GameManager : MonoBehaviour
     public string SendTypeOfSpell()
     {
         return this.typeOfSpell;
-    }
-
-    public int EnnemiTookDamage()
-    {
-        return this.damageToHostile;
     }
 
     public void ResetValues()
