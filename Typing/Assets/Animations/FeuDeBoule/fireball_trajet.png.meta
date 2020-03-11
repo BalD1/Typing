@@ -93,18 +93,18 @@ TextureImporter:
       name: fireball_trajet_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 25
-        width: 102
-        height: 60
+        x: 0
+        y: 0
+        width: 110
+        height: 110
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66bec3b05d3da3f449e126912d6f962b
+      spriteID: 0d04ad78fcfecda448fcf13df143b02d
       vertices: []
       indices: 
       edges: []
@@ -113,38 +113,38 @@ TextureImporter:
       name: fireball_trajet_1
       rect:
         serializedVersion: 2
-        x: 116
-        y: 25
-        width: 102
-        height: 65
+        x: 110
+        y: 0
+        width: 110
+        height: 110
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76e004d60bf2b9149875c45a437a791b
+      spriteID: b7a6bf553bebb3c489bc56770997b746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fireball_trajet_3
+      name: fireball_trajet_2
       rect:
         serializedVersion: 2
-        x: 225
-        y: 27
-        width: 105
-        height: 62
+        x: 220
+        y: 0
+        width: 110
+        height: 110
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 543b34120b6000940a58f164c5e3e0be
+      spriteID: 4b900b620201b4e4bbdbad46576c7b3d
       vertices: []
       indices: 
       edges: []
