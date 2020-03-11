@@ -173,6 +173,8 @@ MonoBehaviour:
     type: 3}
   WaterPrefab: {fileID: 4412917443916773726, guid: a6de732339b4bce46a06452218082d69,
     type: 3}
+  WindPrefab: {fileID: 4944765130388112294, guid: 39dcb5733b6e51d4186bcd1e5ef80bdf,
+    type: 3}
 --- !u!114 &804282186892172685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,7 +229,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.0275862, y: 1.1862069}
+    oldSize: {x: 1.0344827, y: 1.3103448}
     newSize: {x: 1.0816667, y: 1.5616666}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

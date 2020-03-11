@@ -33,7 +33,7 @@ public class OffensiveSpell : MonoBehaviour
 
         WaterTimer = 0;
         WaterTimerTime = 0.3f;
-        WindTimerTime = 1.3f;
+        WindTimerTime = 0.6f;
         WindTimer = WindTimerTime;
 
         BubbleWiggle = 4;
@@ -188,7 +188,7 @@ public class OffensiveSpell : MonoBehaviour
         {
             if (WindTimer == WindTimerTime)
             {
-                collision2.rigidbody.AddForce(direction * 50000);       // à modifier
+                collision2.rigidbody.AddForce(direction * 100000);       // à modifier
             }
             if (WindTimer == 0)
             {
