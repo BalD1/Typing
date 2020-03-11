@@ -3445,7 +3445,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 158c94aa7cdae5241a78f49d9d5fef33, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 158c94aa7cdae5241a78f49d9d5fef33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3659,6 +3659,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1693296315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 804282186892172694, guid: 2c6d2b357b60ab04985e6040cac4baf1,
+    type: 3}
+  m_PrefabInstance: {fileID: 8791162609923170052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1693296322
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693296315}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d790e4aaf7b0dd4a9fb1c0c5b8ebcbe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1792099605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,7 +3936,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d4eb51558226e2c498ec6a602abfa7cb, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 3cf7f4405b9d238498225e7629bf219d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
