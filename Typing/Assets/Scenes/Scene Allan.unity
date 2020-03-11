@@ -233,6 +233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   valide: 0
   SortEcrit: 
+  NewSpellName: 
 --- !u!4 &448153156
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barImage: {fileID: 559308704}
-  numOfHearts: 5
+  manaRegenAmount: 10
+  numOfHearts: 10
   hearts:
   - {fileID: 3802351}
   - {fileID: 1389203554}
@@ -447,6 +449,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FillAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1437878788645491320, guid: 957fe4a81366ded4c8041d4c3b86e1a4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5499605410771723401, guid: 957fe4a81366ded4c8041d4c3b86e1a4,
         type: 3}
@@ -647,7 +654,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!212 &924409348
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2872,17 +2879,17 @@ PrefabInstance:
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}

@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     public const int MANA_MAX = 500;
 
     private float manaAmount;
-    private float manaRegenAmount;
+    public float manaRegenAmount;
 
     private Player billy = new Player();
     [SerializeField]
@@ -141,6 +141,11 @@ public class UIManager : MonoBehaviour
 
     public void ReponseCorrecte()
     {
+        if (noMana)
+        {
+            NoManaLeft();
+            return;
+        }
         correct.SetActive(true); 
         goTimer = true;
         oui = true;
@@ -191,9 +196,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private bool noMana;
     public bool NoMana(float amount)
     {
-        return manaAmount < amount;
+        noMana = manaAmount < amount;
+        return noMana;
     }
 
     public float GetManaNormalized()
