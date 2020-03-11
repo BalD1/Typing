@@ -11,6 +11,8 @@ public class OffensiveSpell : MonoBehaviour
     float ThrowSpeed;
     float BubbleWiggle;
 
+    int BrutDamageDealt;
+
     string TypeOfSpell;
 
     bool Flag;
@@ -55,18 +57,22 @@ public class OffensiveSpell : MonoBehaviour
             case "FireBall":
                 ThrowSpeed = 100;                   // Modifie la vitesse des projectiles
                 AnimTimerTime = 0.6f;               // Modifie le temps d'incantation
+                BrutDamageDealt = 5;
                 break;
             case "Thunder":
                 ThrowSpeed = 75;
                 AnimTimerTime = 0;
+                BrutDamageDealt = 4;
                 break;
             case "Water":
                 ThrowSpeed = 25;
                 AnimTimerTime = 0.6f;
+                BrutDamageDealt = 3;
                 break;
             case "Wind":
                 ThrowSpeed = 80;
                 AnimTimerTime = 0.6f;
+                BrutDamageDealt = 2;
                 break;
         }
 
@@ -227,13 +233,15 @@ public class OffensiveSpell : MonoBehaviour
         Player player = collision.collider.GetComponent<Player>();
         if (player == null)
         {
+            GameManager.Instance.DamageToHostile(BrutDamageDealt);
+            GameManager.Instance.GetTypeOfSpell(TypeOfSpell);
+
             if (TypeOfSpell == "Wind")
             {
                 collision2 = collision;
             }
             else
             {
-                Destroy(collision.gameObject);
                 Destroy(this.gameObject);
             }
         }
