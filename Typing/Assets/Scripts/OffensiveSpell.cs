@@ -20,6 +20,8 @@ public class OffensiveSpell : MonoBehaviour
     float WaterTimerTime;
     float WindTimer;
     float WindTimerTime;
+    float AnimTimer;
+    float AnimTimerTime;
 
     Rigidbody2D rb;
     Collision2D collision2;
@@ -35,6 +37,7 @@ public class OffensiveSpell : MonoBehaviour
         WaterTimerTime = 0.3f;
         WindTimerTime = 0.6f;
         WindTimer = WindTimerTime;
+        
 
         BubbleWiggle = 4;
 
@@ -48,25 +51,41 @@ public class OffensiveSpell : MonoBehaviour
         switch (TypeOfSpell)
         {
             case "FireBall":
-                ThrowSpeed = 100;         // pour modifier la vitesse des projectiles
+                ThrowSpeed = 100;                   // Modifie la vitesse des projectiles
+                AnimTimerTime = 0.6f;               // Modifie le temps d'incantation
                 break;
             case "Thunder":
                 ThrowSpeed = 70;
+                AnimTimerTime = 0;
                 break;
             case "Water":
                 ThrowSpeed = 50;
+                AnimTimerTime = 0.6f;
                 break;
             case "Wind":
                 ThrowSpeed = 100;
+                AnimTimerTime = 0.6f;
                 break;
         }
-        this.rb.AddForce(direction * ThrowSpeed);
+
+        AnimTimer = AnimTimerTime;
+
 
     }
 
     void Update()
     {
         SpecialComportment();
+        SpellThrow();
+    }
+
+    private void SpellThrow()
+    {
+        if (AnimTimer == 0)
+        {
+            this.rb.AddForce(direction * ThrowSpeed);
+        }
+        AnimTimer = Mathf.Clamp(AnimTimer - Time.deltaTime, 0, AnimTimerTime);
     }
 
     private void DirectionThrow()       // vers où le sort est lancé par rapport à la position de Billy
