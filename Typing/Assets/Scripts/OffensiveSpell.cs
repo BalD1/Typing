@@ -15,6 +15,7 @@ public class OffensiveSpell : MonoBehaviour
 
     bool Flag;
     bool ThunderFlag;
+    bool AnimFlag;
 
     float WaterTimer;
     float WaterTimerTime;
@@ -32,6 +33,7 @@ public class OffensiveSpell : MonoBehaviour
     {
         Flag = false;
         ThunderFlag = false;
+        AnimFlag = false;
 
         WaterTimer = 0;
         WaterTimerTime = 0.3f;
@@ -55,15 +57,15 @@ public class OffensiveSpell : MonoBehaviour
                 AnimTimerTime = 0.6f;               // Modifie le temps d'incantation
                 break;
             case "Thunder":
-                ThrowSpeed = 70;
+                ThrowSpeed = 75;
                 AnimTimerTime = 0;
                 break;
             case "Water":
-                ThrowSpeed = 50;
+                ThrowSpeed = 25;
                 AnimTimerTime = 0.6f;
                 break;
             case "Wind":
-                ThrowSpeed = 100;
+                ThrowSpeed = 80;
                 AnimTimerTime = 0.6f;
                 break;
         }
@@ -81,9 +83,10 @@ public class OffensiveSpell : MonoBehaviour
 
     private void SpellThrow()
     {
-        if (AnimTimer == 0)
+        if (AnimTimer == 0 && !AnimFlag)
         {
             this.rb.AddForce(direction * ThrowSpeed);
+            AnimFlag = true;
         }
         AnimTimer = Mathf.Clamp(AnimTimer - Time.deltaTime, 0, AnimTimerTime);
     }
