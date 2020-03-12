@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 804282186863085955}
   - component: {fileID: 2086335554756625765}
   - component: {fileID: 8241016889979247809}
+  - component: {fileID: 1666792245744233901}
+  - component: {fileID: 7647293102018879577}
   m_Layer: 8
   m_Name: Hit box
   m_TagString: Untagged
@@ -56,7 +58,7 @@ PolygonCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -77,6 +79,74 @@ PolygonCollider2D:
       - {x: 0.15837488, y: -0.3080018}
       - {x: 0.05275932, y: 0.08269631}
       - {x: 0.08304006, y: 0.27401638}
+--- !u!50 &1666792245744233901
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186863085952}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &7647293102018879577
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804282186863085952}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 8241016889979247809}
+    m_ColliderPaths:
+    - - X: -735013
+        Y: 3314871
+      - X: -2685435
+        Y: 3335174
+      - X: -2659686
+        Y: 35300
+      - X: -4127817
+        Y: -5885129
+      - X: 1957778
+        Y: -5955128
+      - X: 1583748
+        Y: -3080017
+      - X: 527593
+        Y: 826963
+      - X: 830400
+        Y: 2740163
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 0.1583748, y: -0.3080017}
+      - {x: 0.0527593, y: 0.0826963}
+      - {x: 0.08304, y: 0.2740163}
+      - {x: -0.073501304, y: 0.3314871}
+      - {x: -0.2685435, y: 0.3335174}
+      - {x: -0.2659686, y: 0.00353}
+      - {x: -0.41278172, y: -0.5885129}
+      - {x: 0.1957778, y: -0.5955128}
+  m_VertexDistance: 0.0005
 --- !u!1 &804282186892172694
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b145fda26ba7914e84b535248102e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 30
   billyHp: 10
   billyArmor: 0
   coinCount: 0
@@ -309,7 +379,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.40784317, g: 0.4156863, b: 0.41960788, a: 0}
+  m_BackGroundColor: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -560,7 +630,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &830000127372903119
 MonoBehaviour:
