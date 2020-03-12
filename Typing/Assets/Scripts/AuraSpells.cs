@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AuraSpells : MonoBehaviour
 {
+
+    Animator animator;
+    Animation Heal;
+    Animation Puissance;
+    Animation Armure;
+
     void Start()
     {
         
