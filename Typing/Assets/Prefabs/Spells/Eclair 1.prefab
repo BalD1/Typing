@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 657475207795713989}
   - component: {fileID: 3922132776165533734}
   - component: {fileID: 3828485925437976134}
+  - component: {fileID: 95780658667862854}
   m_Layer: 15
   m_Name: Eclair 1
   m_TagString: Untagged
@@ -163,3 +164,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9767593, y: 0.17893934}
   m_EdgeRadius: 0
+--- !u!95 &95780658667862854
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718954058326967065}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f99bf99bb6364a14b9d374a5739d1203, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
