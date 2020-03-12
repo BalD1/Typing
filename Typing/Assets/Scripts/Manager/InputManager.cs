@@ -39,6 +39,9 @@ public class InputManager : MonoBehaviour
         spells.Add("eau");
         spells.Add("foudre");
         spells.Add("vent");
+        spells.Add("puissance");
+        spells.Add("armure");
+        spells.Add("soin");
 
         LearnedSpells.Add(true);            // DEVMODE
         LearnedSpells.Add(true);
@@ -80,6 +83,7 @@ public class InputManager : MonoBehaviour
                     {
                         UIManager.Instance.ReponseCorrecte();
                         GameObject.Find("Billy").GetComponent<Spells>().SpellLaunch(UIManager.sortEcrit);
+                        GameObject.Find("Aura").GetComponent<AuraSpells>().AuraSpellLaunch(UIManager.sortEcrit);
                         this.valide = false;
                     }
                     else
