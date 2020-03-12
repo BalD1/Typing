@@ -33,8 +33,6 @@ public class IceTrap : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         animator.SetBool("Contact", true);
-        var PEGU = collision.gameObject.GetComponent<Transform>();
         flag = true;
-        PEGU.position = this.transform.position;
     }
 }

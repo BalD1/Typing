@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     private bool iceFlag = false;
 
     private int timerLog = 0;
+    private int iceTimer = 0;
 
     [SerializeField]
     private int speed = 30;
@@ -64,6 +65,15 @@ public class Player : MonoBehaviour
         {
             billy2d.MovePosition(position);
         }
+        else
+        {
+            this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            iceTimer++;
+            if(iceTimer >= 240)
+            {
+                iceFlag = false;
+            }
+        }
 
         vide = Direction();
 
@@ -88,8 +98,6 @@ public class Player : MonoBehaviour
             timerLog++;
         }
     }
-
-    
 
     public Vector2 Direction()
     {
@@ -125,5 +133,18 @@ public class Player : MonoBehaviour
         this.coinCount += GameManager.Instance.GetCoin();
     }
 
-    
+    private void Freeze()
+    {
+        iceFlag = true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        IceTrap trap = collision.gameObject.GetComponent<IceTrap>();
+        if (trap != null)
+        {
+            Freeze();
+        }
+    }
+
 }

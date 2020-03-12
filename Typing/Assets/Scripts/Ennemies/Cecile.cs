@@ -62,5 +62,4 @@ public class Cecile : Ennemi
             this.SpellAction();
         }
     }
-
 }

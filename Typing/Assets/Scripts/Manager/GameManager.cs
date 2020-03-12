@@ -14,6 +14,12 @@ public class GameManager : MonoBehaviour
     private string LearnSpellByGrimory;
     private string typeOfSpell;
 
+    private GameState gameState;
+    private GameObject PauseWindow;
+    private GameObject UIGM;
+
+    List<string> learnedSpells = new List<string>();
+
     private int hp = 10;
 
     private static GameManager instance;
@@ -31,6 +37,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if (SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
+            this.gameState = GameState.MainMenu;
+        }
+        else
+        {
+            this.gameState = GameState.InGame;
+        }
         instance = this;
         LearnSpellByGrimory = "";
     }
@@ -41,6 +55,86 @@ public class GameManager : MonoBehaviour
         InGame,
         Pause,
         GameOver
+    }
+
+    public void ChangeGameState(string newState)
+    {
+        switch(newState)
+        {
+            case "MainMenu":
+                this.gameState = GameState.MainMenu;
+                    break;
+            case "InGame":
+                this.gameState = GameState.InGame;
+                break;
+            case "Pause":
+                this.gameState = GameState.Pause;
+                break;
+            case "GameOver":
+                this.gameState = GameState.GameOver;
+                break;
+            default:
+                Debug.Log("Erreur : GameState Non reconnue");
+                break;
+        }
+        this.Gamestate();
+    }
+
+    public string SendGameState()
+    {
+        switch(gameState)
+        {
+            case GameState.GameOver:
+                return "GameOver";
+            case GameState.InGame:
+                return "InGame";
+            case GameState.MainMenu:
+                return "MainMenu";
+            case GameState.Pause:
+                return "Pause";
+        }
+        return "GameState Introuvable";
+    }
+
+    private void Gamestate()
+    {
+        switch(gameState)
+        {
+            case GameState.GameOver:
+
+                break;
+
+            case GameState.InGame:
+                if(SceneManager.GetActiveScene().name.Equals("MainMenu"))
+                {
+                    SceneManager.LoadScene("Salle1");
+                }
+                else
+                {
+                    PauseWindow.SetActive(false);
+                    UIGM.SetActive(true);
+                }
+                Time.timeScale = 1;
+                break;
+
+            case GameState.MainMenu:
+                SceneManager.LoadScene("MainMenu");
+                break;
+
+            case GameState.Pause:
+                Time.timeScale = 0;
+                PauseWindow.SetActive(true);
+                UIGM.SetActive(false);
+                break;
+
+
+        }
+    }
+
+    public void GetWindowAndUI(GameObject window, GameObject UI)
+    {
+        this.PauseWindow = window;
+        this.UIGM = UI;
     }
 
     public void DamageToBilly(int damageDealt)
@@ -133,12 +227,17 @@ public class GameManager : MonoBehaviour
     public void GetLearnSpell(string LearnSpell)
     {
         this.LearnSpellByGrimory = LearnSpell;
-        Debug.Log(LearnSpellByGrimory);
+        learnedSpells.Add(LearnSpellByGrimory);
     }
 
     public string SendLearnSpell()
     {
         return this.LearnSpellByGrimory;
+    }
+
+    public List<string> SendLearnedSpellList()
+    {
+        return this.learnedSpells;
     }
 
     public void ResetLearning()
