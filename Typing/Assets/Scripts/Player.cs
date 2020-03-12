@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private bool iceFlag = false;
+
     private int timerLog = 0;
 
     [SerializeField]
@@ -26,8 +28,12 @@ public class Player : MonoBehaviour
 
     Rigidbody2D billy2d;
 
+    Animator animator;
+    Vector2 lookDirection = new Vector2(-1, 0);
+
     void Start()
     {
+        this.animator = this.GetComponent<Animator>();
         this.billy2d = this.GetComponent<Rigidbody2D>();
         direction.x = -1;
         direction.y = 0;
@@ -38,8 +44,28 @@ public class Player : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        
+        Vector2 move = new Vector2(horizontal, vertical);
+
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+        }
+
+        Vector2 position = billy2d.position;
+        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Speed", move.magnitude);
+
+        position = position + move * speed * Time.deltaTime;
+
+        if(!iceFlag)
+        {
+            billy2d.MovePosition(position);
+        }
+
         vide = Direction();
-        Movment();
 
         Heal();
         Damage();
@@ -63,13 +89,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Movment()
-    {
-        Vector2 position = billy2d.position;
-        position.x = position.x + this.speed * horizontal * Time.deltaTime;
-        position.y = position.y + this.speed * vertical * Time.deltaTime;
-        this.billy2d.MovePosition(position);
-    }
+    
 
     public Vector2 Direction()
     {

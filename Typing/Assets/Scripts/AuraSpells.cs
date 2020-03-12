@@ -16,26 +16,26 @@ public class AuraSpells : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I) && spellFlag == false)
+        /*if (Input.GetKeyDown(KeyCode.I) && spellFlag == false)
         {
             spellFlag = true;
             Soin();
         }
-        if(Input.GetKeyDown(KeyCode.O) && spellFlag == false)
+        if (Input.GetKeyDown(KeyCode.O) && spellFlag == false)
         {
             spellFlag = true;
-            Dégâts();
+            Puissance();
         }
-        if(Input.GetKeyDown(KeyCode.P) && spellFlag == false)
+        if (Input.GetKeyDown(KeyCode.P) && spellFlag == false)
         {
             spellFlag = true;
-            Bouclier();
-        }
+            Armure();
+        }*/
 
-        if(spellFlag == true)
+        if (spellFlag == true)
         {
             timer++;
-            if(timer == 60)
+            if (timer == 60)
             {
                 timer = 0;
                 spellFlag = false;
@@ -50,16 +50,38 @@ public class AuraSpells : MonoBehaviour
     {
         GameManager.Instance.HealToBilly(1);
         animator.SetBool("Heal", true);
+        spellFlag = true;
     }
 
-    private void Dégâts()
+    private void Puissance()
     {
         animator.SetBool("Puissance", true);
+        spellFlag = true;
     }
 
-    private void Bouclier()
+    private void Armure()
     {
         GameManager.Instance.SetArmorUp(1);
         animator.SetBool("Armure", true);
+        spellFlag = true;
+    }
+
+    public void AuraSpellLaunch(string SortEcrit)
+    {
+        SortEcrit = UIManager.sortEcrit.Replace("\r", "");
+        switch (SortEcrit)
+        {
+            case "soin":
+                Soin();
+                break;
+
+            case "puissance":
+                Puissance();
+                break;
+
+            case "armure":
+                Armure();
+                break;
+        }
     }
 }
