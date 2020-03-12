@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         Damage();
         Armor();
         Money();
+        UIManager.Instance.GetCoinCount(coinCount);
         GameManager.Instance.GetBillyHp(billyHp);
 
         GameManager.Instance.ResetValues();
@@ -103,4 +104,6 @@ public class Player : MonoBehaviour
     {
         this.coinCount += GameManager.Instance.GetCoin();
     }
+
+    
 }

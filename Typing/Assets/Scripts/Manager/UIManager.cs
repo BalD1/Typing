@@ -51,6 +51,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private float timerMarkChange;
     private bool goTimer = false;
+    
+
+    public Text textCoins;
+    private int coin = 0;
 
     private bool oui;
 
@@ -112,9 +116,15 @@ public class UIManager : MonoBehaviour
                 hearts[Mathf.FloorToInt(i / 2)].enabled = false;
             }
         }
+
+        // la regénération de mana
         manaAmount += manaRegenAmount * Time.deltaTime;
         manaAmount = Mathf.Clamp(manaAmount, 0, MANA_MAX);
         barImage.fillAmount = GetManaNormalized();
+
+
+        textCoins.text = "x " + coin;
+
 
     }
 //----------------------------------------------------------------------------------------------------------------------------
@@ -208,5 +218,10 @@ public class UIManager : MonoBehaviour
     public float GetManaNormalized()
     {
         return manaAmount / MANA_MAX;
+    }
+
+    public void GetCoinCount(int coinCount)
+    {
+        this.coin = coinCount;
     }
 }
