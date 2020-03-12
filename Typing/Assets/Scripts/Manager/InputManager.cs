@@ -39,9 +39,9 @@ public class InputManager : MonoBehaviour
         spells.Add("eau");
         spells.Add("foudre");
         spells.Add("vent");
+        spells.Add("soin");
         spells.Add("puissance");
         spells.Add("armure");
-        spells.Add("soin");
 
         LearnedSpells.Add(true);            // DEVMODE
         LearnedSpells.Add(true);

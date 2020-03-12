@@ -10,13 +10,41 @@ public class MenuScript : MonoBehaviour
     private bool Settings;
     MasterButton masterButtonPlay;
     MasterButton masterButtonSettings;
+    [SerializeField]
+    private GameObject PauseWindow;
+    [SerializeField]
+    private GameObject UI;
 
     private void Start()
     {
-        masterButtonPlay = GameObject.FindGameObjectWithTag("MasterButtonPlay").GetComponent<MasterButton>();
-        masterButtonSettings = GameObject.FindGameObjectWithTag("MasterButtonSettings").GetComponent<MasterButton>();
+        if (GameManager.Instance.SendGameState() == "MainMenu")
+        {
+            masterButtonPlay = GameObject.FindGameObjectWithTag("MasterButtonPlay").GetComponent<MasterButton>();
+            masterButtonSettings = GameObject.FindGameObjectWithTag("MasterButtonSettings").GetComponent<MasterButton>();
+        }
+        else
+        {
+            this.PauseWindow.SetActive(false);
+            GameManager.Instance.GetWindowAndUI(this.PauseWindow, this.UI);
+        }
+
         Play = false;
         Settings = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.Instance.SendGameState() == "InGame")
+            {
+                GameManager.Instance.ChangeGameState("Pause");
+            }
+            else if (GameManager.Instance.SendGameState() == "Pause")
+            {
+                GameManager.Instance.ChangeGameState("InGame");
+            }
+        }
     }
 
     public void OnclickEvent(string Button)
@@ -37,7 +65,7 @@ public class MenuScript : MonoBehaviour
 
                 break;
             case "NewGame":
-                SceneManager.LoadScene("Salle1");
+                GameManager.Instance.ChangeGameState("InGame");
                 break;
 
             case "Language":

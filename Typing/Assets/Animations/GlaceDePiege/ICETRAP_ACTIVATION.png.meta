@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: 645ff97d0382f8340b7007562d0c03d2
+guid: bacffee3c01a21649ac774cc09e012e3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: mur 1_0
-    21300002: mur 1_1
-    21300004: mur 1_2
-    21300006: mur 1_3
+    21300000: ICETRAP_ACTIVATION_0
+    21300002: ICETRAP_ACTIVATION_1
+    21300004: ICETRAP_ACTIVATION_2
+    21300006: ICETRAP_ACTIVATION_3
+    21300008: ICETRAP_ACTIVATION_4
+    21300010: ICETRAP_ACTIVATION_5
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -88,81 +90,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mur 1_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 150
-        width: 100
-        height: 50
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2d5ae29e6b5ae94ab030a4aba8ef400
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mur 1_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 100
-        width: 100
-        height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4040139bced86c7479b57d88e1e2fd68
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mur 1_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 50
-        width: 100
-        height: 50
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b5a5a0b271b81541992dc7937660365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mur 1_3
+      name: ICETRAP_ACTIVATION_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 100
-        height: 50
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28ebd6be32548d24b855d93ed927d5db
+      spriteID: 0ff26527e9442a548b6a08e748a4d253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICETRAP_ACTIVATION_1
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfeeb7365830361408f8496815a90c31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICETRAP_ACTIVATION_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fee919e48c6539478f4ebe37159a9aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICETRAP_ACTIVATION_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ca8169c7640494db0f91763ef7dd6c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICETRAP_ACTIVATION_4
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6038248c82ac94ca9f457ddafe7dbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICETRAP_ACTIVATION_5
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 0
+        width: 110
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee837ef75ed08549aedd3ad4f48c341
       vertices: []
       indices: 
       edges: []
@@ -170,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 73d0479dc7869ac4b8ebb6e928e97f8e
+    spriteID: 8217134472edd2348ab5d39cd9873f91
     vertices: []
     indices: 
     edges: []
