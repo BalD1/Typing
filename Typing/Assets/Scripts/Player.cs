@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private bool iceFlag = false;
+
     private int timerLog = 0;
 
     [SerializeField]
@@ -31,7 +33,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        this.animator = GetComponent<Animator>();
+        this.animator = this.GetComponent<Animator>();
         this.billy2d = this.GetComponent<Rigidbody2D>();
         direction.x = -1;
         direction.y = 0;
@@ -58,7 +60,10 @@ public class Player : MonoBehaviour
 
         position = position + move * speed * Time.deltaTime;
 
-        billy2d.MovePosition(position);
+        if(!iceFlag)
+        {
+            billy2d.MovePosition(position);
+        }
 
         vide = Direction();
 
