@@ -1236,21 +1236,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 804282186863085955, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 804282186863085955, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.082
-      objectReference: {fileID: 0}
-    - target: {fileID: 804282186863085955, guid: 2c6d2b357b60ab04985e6040cac4baf1,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 804282186892172688, guid: 2c6d2b357b60ab04985e6040cac4baf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1435,7 +1420,7 @@ GameObject:
   - component: {fileID: 985157270}
   - component: {fileID: 985157269}
   - component: {fileID: 985157268}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1841,7 +1826,7 @@ GameObject:
   - component: {fileID: 1026431384}
   - component: {fileID: 1026431386}
   - component: {fileID: 1026431385}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
