@@ -4,41 +4,35 @@ using UnityEngine;
 
 public class Ennemi : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
 
-    private int hp;
-    private int damageStock;
-    private int brutDamageTaken;
-    private int finalDamageTaken;
+    protected int hp;
+    protected float speed;
+    protected int damageStock;
+    protected int brutDamageTaken;
+    protected int finalDamageTaken;
 
-    private string typeOfSpell;
+    protected string getSpell;
+    protected string sendAffiliation;
+
+    protected string typeOfSpell;
 
     public float stoppingDistance;
 
-    private Transform target;
-    Rigidbody2D cecileBody;
-
     void Start()
     {
-        hp = 10;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        this.cecileBody = this.GetComponent<Rigidbody2D>();
+        this.speed = 4;
+        this.stoppingDistance = 1;
+        typeOfSpell = "";
+
     }
 
     void Update()
     {
-        Movement();
-        damageStock = GameManager.Instance.EnnemiTookDamage();
-        if (damageStock != 0)
-        {
-            this.stateModifier(damageStock);
-            GameManager.Instance.ResetDamageToHostile();
-        }
+
 
     }
 
-    private void Movement()
+    protected void Movement(Transform target)
     {
         if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
         {
@@ -46,30 +40,50 @@ public class Ennemi : MonoBehaviour
         }
     }
 
-    private void stateModifier(int damage)
+    protected void Affiliation(string affiliation)
+    {
+        damageStock = GameManager.Instance.EnnemiTookDamage();
+        if (affiliation != "")
+        {
+            this.typeOfSpell = affiliation;
+        }
+        if (typeOfSpell != "")
+        {
+            this.damageCalculation(damageStock);
+        }
+    }
+
+    private void damageCalculation(int damage)
     {
         brutDamageTaken = damage;
-        typeOfSpell = GameManager.Instance.SendTypeOfSpell();
 
         switch(typeOfSpell)
         {
-            case "FireBall":
-                finalDamageTaken = brutDamageTaken / 2;
-                break;
-            case "Water":
+            case "Vulnerability":
                 finalDamageTaken = brutDamageTaken * 2;
+                break;
+            case "Resistance":
+                finalDamageTaken = brutDamageTaken / 2;
                 break;
         }
 
+
         Debug.Log("brut : " + brutDamageTaken);
-        Debug.Log("final : " +finalDamageTaken);
-        hp -= finalDamageTaken;
-        Debug.Log("hp : " + hp);
-        if (hp <= 0)
-        {
-            Destroy(this.gameObject);
-        }
+        Debug.Log("final : " + finalDamageTaken);
+        typeOfSpell = "";
+        GameManager.Instance.ResetDamageToHostile();
     }
+
+    protected int DamageCalculated()
+    {
+        return finalDamageTaken;
+    }
+
+    protected void ResetFinalDamage()
+    {
+        finalDamageTaken = 0;
+    }
+
 
     
 
