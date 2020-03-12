@@ -8,6 +8,8 @@ public class OffensiveSpell : MonoBehaviour
     Vector2 direction;
     Vector2 ThunderDirection;
 
+    Animator animator;
+
     float ThrowSpeed;
     float BubbleWiggle;
 
@@ -18,6 +20,7 @@ public class OffensiveSpell : MonoBehaviour
     bool Flag;
     bool ThunderFlag;
     bool AnimFlag;
+    bool deathFlag = false;
 
     float WaterTimer;
     float WaterTimerTime;
@@ -25,6 +28,7 @@ public class OffensiveSpell : MonoBehaviour
     float WindTimerTime;
     float AnimTimer;
     float AnimTimerTime;
+    float deathTimer = 0;
 
     Rigidbody2D rb;
     Collision2D collision2;
@@ -33,6 +37,8 @@ public class OffensiveSpell : MonoBehaviour
 
     private void Start()
     {
+        animator = this.gameObject.GetComponent<Animator>();
+
         Flag = false;
         ThunderFlag = false;
         AnimFlag = false;
@@ -85,6 +91,17 @@ public class OffensiveSpell : MonoBehaviour
     {
         SpecialComportment();
         SpellThrow();
+
+        if(deathFlag == true)
+        {
+            deathTimer++;
+            if(deathTimer >= 30)
+            {
+                deathFlag = false;
+                deathTimer = 0;
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     private void SpellThrow()
@@ -128,7 +145,7 @@ public class OffensiveSpell : MonoBehaviour
     {
         if (TypeOfSpell == "Water")
         {
-            if (WaterTimer == 0)
+            if (WaterTimer == 0 && !deathFlag)
             {
                 if (!Flag)
                 {
@@ -242,7 +259,9 @@ public class OffensiveSpell : MonoBehaviour
             }
             else
             {
-                Destroy(this.gameObject);
+                animator.SetBool("Contact", true);
+                this.rb.velocity = Vector2.zero;
+                deathFlag = true;
             }
         }
         else
