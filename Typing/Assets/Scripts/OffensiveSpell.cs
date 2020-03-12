@@ -145,7 +145,7 @@ public class OffensiveSpell : MonoBehaviour
     {
         if (TypeOfSpell == "Water")
         {
-            if (WaterTimer == 0 && !deathFlag)
+            if (WaterTimer == 0 && !deathFlag && AnimTimer <= 0)
             {
                 if (!Flag)
                 {
@@ -197,11 +197,11 @@ public class OffensiveSpell : MonoBehaviour
             bool CanClear = false;
             if (direction.x == 0)
             {
-                ThunderDirection.x = 1.5f;
+                ThunderDirection.x = 1.4f;
             }
             if (direction.y == 0)
             {
-                ThunderDirection.y = 1.5f;
+                ThunderDirection.y = 1.4f;
             }
             foreach (GameObject ThunderSolo in MultipleSpells)
             {
