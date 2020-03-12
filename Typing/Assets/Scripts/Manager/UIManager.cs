@@ -86,28 +86,30 @@ public class UIManager : MonoBehaviour
         }
 
 //----------------------------------------------------------  Les coeurs  ---------------------------------
-        for (int i = 0; i < hearts.Length; i++)
+        for (int i = 0; i < hearts.Length+5; i++)
         {
             
             if (i < GameManager.Instance.SendBillyHp())
             {
-                hearts[i].sprite = fullHearts;
+                hearts[Mathf.FloorToInt(i / 2)].sprite = fullHearts;
             }
             else if(i == GameManager.Instance.SendBillyHp())
             {
-                hearts[i].sprite = halfHearts;
+                hearts[Mathf.FloorToInt(i / 2)].sprite = halfHearts;
             }
             else
             {
-                hearts[i].sprite = null;
+                hearts[Mathf.FloorToInt(i /2)].color = new Color(1f, 1f, 1f, 0f); //pas de coeur
             }
+
+
             if (i < numOfHearts)
             {
-                hearts[i].enabled = true;
+                hearts[Mathf.FloorToInt(i / 2)].enabled = true;
             }
             else
             {
-                hearts[i].enabled = false;
+                hearts[Mathf.FloorToInt(i / 2)].enabled = false;
             }
         }
         manaAmount += manaRegenAmount * Time.deltaTime;

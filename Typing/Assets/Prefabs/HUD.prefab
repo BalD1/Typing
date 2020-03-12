@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08410465, g: 0.08930223, b: 0.09433961, a: 1}
+  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 160091533006017011}
   - component: {fileID: 1891711614419730935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sprite-mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: bb8785108cce0de4a848afd0fee01e49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -358,7 +358,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_TargetDisplay: 0
 --- !u!114 &8085143268948942030
 MonoBehaviour:
@@ -435,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 185.7, y: -77}
+  m_AnchoredPosition: {x: 185.70001, y: -77}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &687336117223463811
@@ -555,12 +555,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8263829975769136107, guid: 7616356ed512cdd4588a13a8482322cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22c8170615ce9e44592dad2e0d12e11b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7616356ed512cdd4588a13a8482322cd, type: 3}
 --- !u!224 &1437878788645491320 stripped
@@ -686,12 +680,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8263829975769136107, guid: 7616356ed512cdd4588a13a8482322cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22c8170615ce9e44592dad2e0d12e11b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7616356ed512cdd4588a13a8482322cd, type: 3}
 --- !u!224 &188517234738984640 stripped
@@ -817,12 +805,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart 5
       objectReference: {fileID: 0}
-    - target: {fileID: 8263829975769136107, guid: 7616356ed512cdd4588a13a8482322cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22c8170615ce9e44592dad2e0d12e11b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7616356ed512cdd4588a13a8482322cd, type: 3}
 --- !u!224 &6000445099166421879 stripped
@@ -948,12 +930,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart 4
       objectReference: {fileID: 0}
-    - target: {fileID: 8263829975769136107, guid: 7616356ed512cdd4588a13a8482322cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22c8170615ce9e44592dad2e0d12e11b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7616356ed512cdd4588a13a8482322cd, type: 3}
 --- !u!224 &4904961897748309920 stripped
@@ -1079,12 +1055,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8263829975769136107, guid: 7616356ed512cdd4588a13a8482322cd,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 22c8170615ce9e44592dad2e0d12e11b,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7616356ed512cdd4588a13a8482322cd, type: 3}
 --- !u!224 &7956309432598817147 stripped
