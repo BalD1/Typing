@@ -58,6 +58,9 @@ public class UIManager : MonoBehaviour
 
     private bool oui;
 
+    public string onMouseOverSpell;
+    public bool onMouseOverActive;
+
     
 
     private void Awake()
@@ -223,5 +226,25 @@ public class UIManager : MonoBehaviour
     public void GetCoinCount(int coinCount)
     {
         this.coin = coinCount;
+    }
+
+    //----------------------------------------------------------------------------------------------
+
+    //---------------------------------------  LA PAGE DE SPELL  -----------------------------------
+
+    public void GetOnMouseOverSpell(string spellName, bool active)
+    {
+        this.onMouseOverSpell = spellName;
+        this.onMouseOverActive = active;
+    }
+
+    public string SendOnMouseOverSpellName()
+    {
+        return this.onMouseOverSpell;
+    }
+
+    public bool SendOnMouseOverSpellActive()
+    {
+        return this.onMouseOverActive;
     }
 }

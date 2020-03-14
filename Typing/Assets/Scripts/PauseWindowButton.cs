@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseWindowButton : MonoBehaviour
 {
@@ -22,6 +23,15 @@ public class PauseWindowButton : MonoBehaviour
     private GameObject GrimoirePower;
     [SerializeField]
     private GameObject GrimoireSoin;
+    [SerializeField]
+    private GameObject spellPage;
+    [SerializeField]
+    private Text spellInfos;
+    [SerializeField]
+    private Text vulnerables;
+    [SerializeField]
+    private Text resistants;
+
     
     
 
@@ -48,6 +58,15 @@ public class PauseWindowButton : MonoBehaviour
         foreach(string learnedSpell in LearnedSpells)
         {
             UnlockingSpell(learnedSpell);
+        }
+        if (UIManager.Instance.SendOnMouseOverSpellActive())
+        {
+            this.spellPage.SetActive(true);
+        }
+        else
+        {
+            this.spellPage.SetActive(false);
+            
         }
     }
 
@@ -97,4 +116,5 @@ public class PauseWindowButton : MonoBehaviour
                 break;
         }
     }
+
 }
