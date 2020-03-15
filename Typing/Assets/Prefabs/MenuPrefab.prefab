@@ -38,16 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7757225971318553876}
     m_Modifications:
-    - target: {fileID: 4890701063494283871, guid: 2a1f40e60c71bfb42bb53752eed6ade2,
-        type: 3}
-      propertyPath: PauseWindow
-      value: 
-      objectReference: {fileID: 7757225970140026074}
-    - target: {fileID: 7667792197063129381, guid: 2a1f40e60c71bfb42bb53752eed6ade2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.3000183
-      objectReference: {fileID: 0}
     - target: {fileID: 7667792197542031787, guid: 2a1f40e60c71bfb42bb53752eed6ade2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -163,12 +153,6 @@ PrefabInstance:
 --- !u!224 &7757225969888656609 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7667792197542031787, guid: 2a1f40e60c71bfb42bb53752eed6ade2,
-    type: 3}
-  m_PrefabInstance: {fileID: 130124500881952074}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7757225970140026074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7667792197827516816, guid: 2a1f40e60c71bfb42bb53752eed6ade2,
     type: 3}
   m_PrefabInstance: {fileID: 130124500881952074}
   m_PrefabAsset: {fileID: 0}
