@@ -62,6 +62,7 @@ public class PauseWindowButton : MonoBehaviour
         if (UIManager.Instance.SendOnMouseOverSpellActive())
         {
             this.spellPage.SetActive(true);
+            this.spellInfos.text = UIManager.Instance.SendOnMouseOverSpellName();
         }
         else
         {
