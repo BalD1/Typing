@@ -32,9 +32,11 @@ public class Cecile : Ennemi
         {
             case "FireBall":
                 sendAffiliation = "Resistance";
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation);
                 break;
             case "Water":
                 sendAffiliation = "Vulnerability";
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation);
                 break;
             default:
                 sendAffiliation = "Nothing";

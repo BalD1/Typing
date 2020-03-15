@@ -6,7 +6,7 @@ Preset:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BoxCollider2D_GrimoireMenu
+  m_Name: BoxCollider2DGrimory
   m_TargetType:
     m_NativeTypeID: 61
     m_ManagedTypePPtr: {fileID: 0}
@@ -38,11 +38,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Offset.x
-    value: 1.6675739
+    value: 1.2343903
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Offset.y
-    value: -1.5669556
+    value: -0.26763153
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_SpriteTilingProperty.border.x
@@ -102,11 +102,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Size.x
-    value: 56.04024
+    value: 32.652313
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_Size.y
-    value: 58.383484
+    value: 41.92552
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_EdgeRadius

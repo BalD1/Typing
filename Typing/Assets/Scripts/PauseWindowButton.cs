@@ -8,6 +8,8 @@ public class PauseWindowButton : MonoBehaviour
     private List<GameObject> GrimoireList = new List<GameObject>();
     private List<string> LearnedSpells = new List<string>();
     [SerializeField]
+    private GameObject GrimoireFeu;
+    [SerializeField]
     private GameObject GrimoireEau;
     [SerializeField]
     private GameObject GrimoireGlace;
@@ -37,6 +39,7 @@ public class PauseWindowButton : MonoBehaviour
 
     private void Start()
     {
+        GrimoireList.Add(GrimoireFeu);
         GrimoireList.Add(GrimoireEau);
         GrimoireList.Add(GrimoireGlace);
         GrimoireList.Add(GrimoireVampirisme);
@@ -48,8 +51,12 @@ public class PauseWindowButton : MonoBehaviour
 
         foreach(GameObject grimoire in GrimoireList)
         {
-            grimoire.SetActive(false);
+            if (grimoire != GrimoireFeu)
+            {
+                grimoire.SetActive(false);
+            }
         }
+        
     }
 
     private void Update()
@@ -62,7 +69,13 @@ public class PauseWindowButton : MonoBehaviour
         if (UIManager.Instance.SendOnMouseOverSpellActive())
         {
             this.spellPage.SetActive(true);
-            this.spellInfos.text = UIManager.Instance.SendOnMouseOverSpellName();
+            SpellsInfo.Instance.GetSpellName(UIManager.Instance.SendOnMouseOverSpellName(), true);
+            this.spellInfos.text = UIManager.Instance.SendOnMouseOverSpellName() + "\n" +
+                                    "Dégats : " + SpellsInfo.Instance.SendSpellDamage() + "\n" +
+                                    "Coût : " + SpellsInfo.Instance.SendManaCost() + "\n" +
+                                    SpellsInfo.Instance.SendDescription();
+            this.vulnerables.text = SpellsInfo.Instance.SendVulnerables();
+            this.resistants.text = SpellsInfo.Instance.SendResistants();
         }
         else
         {
@@ -76,28 +89,28 @@ public class PauseWindowButton : MonoBehaviour
         switch (UnlockedSpell)
         {
             case "eau":
-                GrimoireList[0].SetActive(true);
-                break;
-            case "glace":
                 GrimoireList[1].SetActive(true);
                 break;
-            case "vampirisme":
+            case "glace":
                 GrimoireList[2].SetActive(true);
                 break;
-            case "vent":
+            case "vampirisme":
                 GrimoireList[3].SetActive(true);
                 break;
-            case "bouclier":
+            case "vent":
                 GrimoireList[4].SetActive(true);
                 break;
-            case "foudre":
+            case "bouclier":
                 GrimoireList[5].SetActive(true);
                 break;
-            case "power":
+            case "foudre":
                 GrimoireList[6].SetActive(true);
                 break;
-            case "soin":
+            case "power":
                 GrimoireList[7].SetActive(true);
+                break;
+            case "soin":
+                GrimoireList[8].SetActive(true);
                 break;
         }
     }

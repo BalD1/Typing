@@ -58,29 +58,11 @@ public class OffensiveSpell : MonoBehaviour
 
         TypeOfSpell = GameObject.Find("Billy").GetComponent<Spells>().GetSpell("Call");
 
-        switch (TypeOfSpell)
-        {
-            case "FireBall":
-                ThrowSpeed = 100;                   // Modifie la vitesse des projectiles
-                AnimTimerTime = 0.6f;               // Modifie le temps d'incantation
-                BrutDamageDealt = 5;
-                break;
-            case "Thunder":
-                ThrowSpeed = 75;
-                AnimTimerTime = 0;
-                BrutDamageDealt = 4;
-                break;
-            case "Water":
-                ThrowSpeed = 25;
-                AnimTimerTime = 0.6f;
-                BrutDamageDealt = 3;
-                break;
-            case "Wind":
-                ThrowSpeed = 80;
-                AnimTimerTime = 0.6f;
-                BrutDamageDealt = 2;
-                break;
-        }
+        SpellsInfo.Instance.GetSpellName(TypeOfSpell, false);
+
+        ThrowSpeed = SpellsInfo.Instance.SendThrowSpeed();
+        AnimTimerTime = SpellsInfo.Instance.SendSpellAnimTime();
+        BrutDamageDealt = SpellsInfo.Instance.SendSpellDamage();
 
         AnimTimer = AnimTimerTime;
 

@@ -33,9 +33,11 @@ public class Exemple : Ennemi
         {
             case "sort pas efficace":              // A MODIFIER
                 sendAffiliation = "Resistance";
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation);
                 break;
             case "sort efficace":              // A MODIFIER
                 sendAffiliation = "Vulnerability";
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation);
                 break;
             default:
                 sendAffiliation = "Nothing";

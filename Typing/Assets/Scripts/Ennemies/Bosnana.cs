@@ -32,10 +32,11 @@ public class Bosnana : Ennemi
         {
             case "Water":
                 sendAffiliation = "Resistance";
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation);
                 break;
             case "Thunder":
                 sendAffiliation = "Vulnerability";
-                break;
+                SpellsInfo.Instance.ShowAffiliation(this.gameObject.name, sendAffiliation); break;
             default:
                 sendAffiliation = "Nothing";
                 break;
