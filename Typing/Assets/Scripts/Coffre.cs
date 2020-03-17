@@ -51,7 +51,7 @@ public class Coffre : MonoBehaviour
 
     private void Instantiate()
     {
-        int rand = Random.Range(0, 1);
+        int rand = Random.Range(0, 2);
         if (rand == 1)
         {
             Instantiate(Heart, position, Quaternion.identity);
