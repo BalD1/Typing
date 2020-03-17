@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHearts;
     public Sprite halfHearts;
+    public Sprite noHearts;
 
     public bool boitePresent = false;
     public GameObject panel;
@@ -109,7 +110,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                this.color.a = 0;   //pas de coeur
+                hearts[Mathf.FloorToInt(i / 2)].sprite = noHearts;   //pas de coeur
             }
 
 
