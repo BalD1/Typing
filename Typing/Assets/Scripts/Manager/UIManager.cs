@@ -61,6 +61,7 @@ public class UIManager : MonoBehaviour
     public string onMouseOverSpell;
     public bool onMouseOverActive;
 
+    private Color color;
     
 
     private void Awake()
@@ -99,14 +100,16 @@ public class UIManager : MonoBehaviour
             if (i < GameManager.Instance.SendBillyHp())
             {
                 hearts[Mathf.FloorToInt(i / 2)].sprite = fullHearts;
+                this.color.a = 1;
             }
             else if(i == GameManager.Instance.SendBillyHp())
             {
                 hearts[Mathf.FloorToInt(i / 2)].sprite = halfHearts;
+                this.color.a = 1;
             }
             else
             {
-                hearts[Mathf.FloorToInt(i /2)].color = new Color(1f, 1f, 1f, 0f); //pas de coeur
+                this.color.a = 0;   //pas de coeur
             }
 
 
